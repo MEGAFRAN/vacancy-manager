@@ -2,7 +2,7 @@ import Dashboard from "./components/Dashboard"
 
 export default function Home() {
   return (
-    <div >
+    <div>
       <main>
         <Dashboard />
       </main>

@@ -6,8 +6,16 @@ import Card from "./Card"
 import NewCardForm from "./NewCardForm"
 import styles from "../styles/dashboard.module.scss"
 
-
-const initialColumns = ["Interested", "Applied", "Recruiter Interview", "Tech Interview", "Client Interview", "HR Interview", "Contract", "Miss"]
+const initialColumns = [
+  "Interested",
+  "Applied",
+  "Recruiter Interview",
+  "Tech Interview",
+  "Client Interview",
+  "HR Interview",
+  "Contract",
+  "Miss",
+]
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([])
@@ -31,23 +39,23 @@ const Dashboard: React.FC = () => {
   }, [cards])
 
   const handleDeleteCard = (id: string) => {
-    const updatedCards = cards.filter(card => card.id !== id)
+    const updatedCards = cards.filter((card) => card.id !== id)
     setCards(updatedCards)
   }
 
   const handleUpdateCard = (updatedCard: CardData) => {
-    const updatedCards = cards.map(card => card.id === updatedCard.id ? updatedCard : card)
+    const updatedCards = cards.map((card) => (card.id === updatedCard.id ? updatedCard : card))
     setCards(updatedCards)
   }
 
   // Render columns and cards
-  const renderColumns = initialColumns.map(column => {
-    const columnCards = cards.filter(card => card.column === column)
+  const renderColumns = initialColumns.map((column) => {
+    const columnCards = cards.filter((card) => card.column === column)
     return (
       <div key={column} className="column">
         <h2>{column}</h2>
         <div className="cards">
-          {columnCards.map(cardData => (
+          {columnCards.map((cardData) => (
             <Card
               key={cardData.id}
               data={cardData}
@@ -57,21 +65,14 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
         <button onClick={() => setShowNewCardForm(true)}>Add New Card</button>
-      {showNewCardForm && (
-        <NewCardForm
-          onClose={() => setShowNewCardForm(false)}
-          onSave={addNewCard}
-        />
-      )}
+        {showNewCardForm && (
+          <NewCardForm onClose={() => setShowNewCardForm(false)} onSave={addNewCard} />
+        )}
       </div>
     )
   })
 
-  return (
-    <div className={styles.container}>
-      {renderColumns}
-    </div>
-  )
+  return <div className={styles.container}>{renderColumns}</div>
 }
 
 export default Dashboard

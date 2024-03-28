@@ -4,9 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "jest a && next build",
+    "start": "npx serve@latest out",
+    "lint": "next lint --dir .",
+    "lint:scss": "stylelint \"./app/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"./app/**/*.scss\" --fix",
+    "test": "jest a",
+    "test:watch": "jest a --watch",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18",

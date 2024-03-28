@@ -5,9 +5,9 @@ import { CardData } from "../interfaces/components"
 import styles from "../styles/card.module.scss"
 
 interface CardProps {
-  data: CardData;
-  onDelete: (id: string) => void;
-  onUpdate: (data: CardData) => void;
+  data: CardData
+  onDelete: (id: string) => void
+  onUpdate: (data: CardData) => void
 }
 
 const Card: React.FC<CardProps> = ({ data, onDelete, onUpdate }) => {
