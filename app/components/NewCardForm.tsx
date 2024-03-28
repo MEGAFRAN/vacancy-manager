@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import { CardData } from "../interfaces/components"
 
@@ -31,17 +33,6 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ onClose, onSave }) => {
     onSave(formData)
     onClose()
   }
-
-  const columnOptions = [
-    "Interested",
-    "Applied",
-    "Recruiter Interview",
-    "Tech Interview",
-    "Client Interview",
-    "HR Interview",
-    "Contract",
-    "Miss",
-  ]
 
   return (
     <div className="newCardForm">
@@ -91,14 +82,6 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ onClose, onSave }) => {
           value={formData.comments}
           onChange={handleChange}
         />
-        <select name="column" value={formData.column} onChange={handleChange} required>
-          <option value="">Select a Column</option>
-          {columnOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
         <button type="submit">Save Card</button>
         <button type="button" onClick={onClose}>
           Cancel

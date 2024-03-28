@@ -18,10 +18,18 @@ const Card: React.FC<CardProps> = ({ data, onDelete, onUpdate }) => {
 
   return (
     <div className={styles.container}>
-      <input name="companyName" value={data.companyName} onChange={handleChange} />
-      {/* Add other fields here */}
-      <button onClick={handleDelete}>Delete</button>
-      {/* Dropdown and other inputs */}
+      <input type="text" name="companyName" value={data.companyName} onChange={handleChange} />
+      <input type="text" name="role" value={data.role} onChange={handleChange} />
+      <input type="date" name="date" value={data.date} onChange={handleChange} />
+      <input
+        type="text"
+        name="expectedSalary"
+        value={data.expectedSalary}
+        onChange={handleChange}
+      />
+      <textarea name="jobDescription" value={data.jobDescription} onChange={handleChange} />
+      <textarea name="comments" value={data.comments} onChange={handleChange} />
+      <button onClick={handleDelete}>Delete Card</button>
     </div>
   )
 }
