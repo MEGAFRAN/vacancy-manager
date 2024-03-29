@@ -14,7 +14,7 @@ const initialColumns = [
   "Client Interview",
   "HR Interview",
   "Offer",
-  "Ended",
+  "Not Selected",
 ]
 
 const Dashboard: React.FC = () => {

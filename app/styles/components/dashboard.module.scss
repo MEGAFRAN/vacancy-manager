@@ -11,10 +11,10 @@
   .column {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
     background-color: #f4f5f7;
     border-radius: 6px;
-    min-width: 162px;
+    min-width: 200px;
     max-width: 100%;
     text-align: center;
     align-items: center;
@@ -26,7 +26,7 @@
       line-height: 1.14286;
       text-transform: uppercase;
       letter-spacing: normal;
-      padding: 12px;
+      padding: 6px;
     }
 
     .header {

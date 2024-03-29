@@ -1,17 +1,23 @@
 @use "../mixins/html_tags/button";
 @use "../mixins/html_tags/input";
+@use "../mixins/html_tags/label";
 
 .container {
   background-color: #ffffff;
-  border: 1px solid #dfe1e6;
+  outline: 1px solid #ced0d4;
   border-radius: 6px;
   padding: 10px;
   margin: 0 4px;
+  width: 85%;
 
   input,
   textarea,
   select {
     @include input.default();
+  }
+
+  label {
+    @include label.default();
   }
 
   button {
