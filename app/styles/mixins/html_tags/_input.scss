@@ -1,0 +1,16 @@
+@mixin default {
+  border: 1px solid #dfe1e6;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+  color: black;
+  background-color: #ebebed;
+  outline: solid 1px #c7c7c7;
+
+  &:focus {
+    border-color: #4c9aff;
+    box-shadow: 0 0 0 2px rgba(76, 154, 255, 0.5);
+  }
+}

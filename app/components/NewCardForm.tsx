@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { CardData } from "../interfaces/components"
+import styles from "../styles/components/newCardForm.module.scss"
 
 interface NewCardFormProps {
   onClose: () => void
@@ -35,7 +36,7 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ onClose, onSave }) => {
   }
 
   return (
-    <div className="newCardForm">
+    <div className={styles.container}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -82,10 +83,14 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ onClose, onSave }) => {
           value={formData.comments}
           onChange={handleChange}
         />
-        <button type="submit">Save Card</button>
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
+        <div className={styles.button_container}>
+          <button className={styles.add_button} type="submit">
+            Save Card
+          </button>
+          <button className={styles.delete_button} type="button" onClick={onClose}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   )

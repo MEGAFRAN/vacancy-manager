@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import { CardData } from "../interfaces/components"
 import Card from "./Card"
 import NewCardForm from "./NewCardForm"
-import styles from "../styles/dashboard.module.scss"
+import styles from "../styles/components/dashboard.module.scss"
 
 const initialColumns = [
   "Interested",
@@ -60,33 +60,40 @@ const Dashboard: React.FC = () => {
     setCards(updatedCards)
   }
 
-  const renderColumns = initialColumns.map((column) => {
-    const columnCards = cards.filter((card) => card.column === column)
-    return (
-      <div key={column} className="column">
-        <h2>{column}</h2>
-        <div className="cards">
-          {columnCards.map((cardData) => (
-            <Card
-              key={cardData.id}
-              data={cardData}
-              onDelete={() => handleDeleteCard(cardData.id, column)}
-              onUpdate={handleUpdateCard}
-            />
-          ))}
-        </div>
-        <button onClick={() => setShowNewCardFormForColumn(column)}>Add New Card</button>
-        {showNewCardFormForColumn === column && (
-          <NewCardForm
-            onClose={() => setShowNewCardFormForColumn("")}
-            onSave={(cardData) => addNewCard(cardData, column)}
-          />
-        )}
-      </div>
-    )
-  })
-
-  return <div className={styles.container}>{renderColumns}</div>
+  return (
+    <div className={styles.container}>
+      {initialColumns.map((column) => {
+        const columnCards = cards.filter((card) => card.column === column)
+        return (
+          <div key={column} className={styles.column}>
+            <div className={styles.header}>
+              <h2>{column}</h2>
+              <button
+                className={styles.add_button}
+                onClick={() => setShowNewCardFormForColumn(column)}
+              >
+                Add Card
+              </button>
+            </div>
+            {columnCards.map((cardData) => (
+              <Card
+                key={cardData.id}
+                data={cardData}
+                onDelete={() => handleDeleteCard(cardData.id, column)}
+                onUpdate={handleUpdateCard}
+              />
+            ))}
+            {showNewCardFormForColumn === column && (
+              <NewCardForm
+                onClose={() => setShowNewCardFormForColumn("")}
+                onSave={(cardData) => addNewCard(cardData, column)}
+              />
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
 export default Dashboard

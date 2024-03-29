@@ -2,7 +2,7 @@
 
 import React from "react"
 import { CardData } from "../interfaces/components"
-import styles from "../styles/card.module.scss"
+import styles from "../styles/components/card.module.scss"
 
 interface CardProps {
   data: CardData
@@ -29,7 +29,9 @@ const Card: React.FC<CardProps> = ({ data, onDelete, onUpdate }) => {
       />
       <textarea name="jobDescription" value={data.jobDescription} onChange={handleChange} />
       <textarea name="comments" value={data.comments} onChange={handleChange} />
-      <button onClick={handleDelete}>Delete Card</button>
+      <button className={styles.delete_button} onClick={handleDelete}>
+        Delete Card
+      </button>
     </div>
   )
 }

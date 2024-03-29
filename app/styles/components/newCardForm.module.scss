@@ -1,0 +1,32 @@
+@use "../mixins/html_tags/button";
+@use "../mixins/html_tags/input";
+
+.container {
+  background-color: #ffffff;
+  border: 1px solid #dfe1e6;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 0 4px;
+
+  input,
+  textarea,
+  select {
+    @include input.default();
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+
+    .add_button {
+      @include button.add();
+    }
+
+    .delete_button {
+      @include button.delete();
+    }
+  }
+}

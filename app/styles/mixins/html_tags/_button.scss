@@ -1,0 +1,31 @@
+@mixin add {
+  background-color: green;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 10px;
+  max-width: 140px;
+  min-width: 100px;
+
+  &:hover {
+    background-color: rgb(0, 103, 0);
+  }
+}
+
+@mixin delete {
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 10px;
+  max-width: 140px;
+  min-width: 100px;
+
+  &:hover {
+    background-color: rgb(182, 0, 0);
+  }
+}

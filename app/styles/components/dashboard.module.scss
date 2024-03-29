@@ -1,0 +1,40 @@
+@use "../mixins/html_tags/button";
+
+.container {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0px 40px 40px 34px;
+  overflow-y: auto;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #f4f5f7;
+    border-radius: 3px;
+    min-width: 162px;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+
+    h2 {
+      color: #5e6c84;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.14286;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      padding: 12px;
+    }
+
+    .header {
+      margin-bottom: 8px;
+    }
+
+    .add_button {
+      @include button.add();
+    }
+  }
+}
