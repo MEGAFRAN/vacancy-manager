@@ -13,7 +13,7 @@ const initialColumns = [
   "Tech Interview",
   "Client Interview",
   "HR Interview",
-  "Contract",
+  "Offer",
   "Ended",
 ]
 
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
                 className={styles.add_button}
                 onClick={() => setShowNewCardFormForColumn(column)}
               >
-                Add Card
+                Add
               </button>
             </div>
             {columnCards.map((cardData) => (

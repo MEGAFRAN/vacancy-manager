@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({ data, onDelete, onUpdate }) => {
       <textarea name="jobDescription" value={data.jobDescription} onChange={handleChange} />
       <textarea name="comments" value={data.comments} onChange={handleChange} />
       <button className={styles.delete_button} onClick={handleDelete}>
-        Delete Card
+        Delete
       </button>
     </div>
   )
