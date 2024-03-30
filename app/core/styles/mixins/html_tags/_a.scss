@@ -6,3 +6,16 @@
     color: #0056b3;
   }
 }
+
+@mixin button-like {
+  background-color: #0070f3;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}

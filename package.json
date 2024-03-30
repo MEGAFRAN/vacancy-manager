@@ -15,7 +15,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky install"
   },
-    "engines": {
+  "engines": {
     "node": ">=18.17.0"
   },
   "dependencies": {

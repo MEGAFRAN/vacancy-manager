@@ -1,4 +1,7 @@
+import Footer from "../core/components/Footer"
 import LinksGrid from "../core/components/LinkGrid"
+import NavBar from "../core/components/NavBar"
+import DefaultTemplate from "../core/components/layout/Template"
 
 const urls = [
   "https://www.toptal.com",
@@ -16,12 +19,8 @@ const urls = [
 
 export default function Home() {
   return (
-    <div>
-      <main>
-        <h1 style={{ textAlign: "center" }}>Freelance tech jobs boards</h1>
-      </main>
+    <DefaultTemplate title="Freelance tech jobs boards">
       <LinksGrid urls={urls} />
-      <footer></footer>
-    </div>
+    </DefaultTemplate>
   )
 }

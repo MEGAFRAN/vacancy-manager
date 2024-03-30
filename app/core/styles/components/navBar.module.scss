@@ -1,0 +1,14 @@
+@use "../mixins/html_tags/a";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 20px;
+  padding: 0 40px;
+
+  a {
+    @include a.button-like();
+  }
+}
