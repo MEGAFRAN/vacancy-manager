@@ -1,0 +1,15 @@
+@use "../mixins/html_tags/a";
+
+.container {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 20px;
+
+  a {
+    @include a.default();
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
