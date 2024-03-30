@@ -1,0 +1,11 @@
+@use "../mixins/html_tags/a";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  a {
+    @include a.default();
+  }
+}

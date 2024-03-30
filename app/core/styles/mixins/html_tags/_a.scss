@@ -1,0 +1,8 @@
+@mixin default {
+  color: #0070f3;
+  text-align: center;
+
+  &:hover {
+    color: #0056b3;
+  }
+}

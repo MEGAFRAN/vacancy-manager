@@ -5,7 +5,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tech jobs managment tool | Clubtal",
+  title: "Tech jobs tracker | Clubtal",
   description: "Track selection process steps, for tech jobs",
 }
 
