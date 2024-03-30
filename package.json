@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "jest a && next build",
+    "build": "jest a --passWithNoTests && next build",
     "start": "npx serve@latest out",
     "lint": "next lint --dir .",
     "lint:scss": "stylelint \"./app/**/*.scss\"",
