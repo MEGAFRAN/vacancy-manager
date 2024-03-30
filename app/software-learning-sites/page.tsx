@@ -17,7 +17,7 @@ const urls = [
 
 export default function Home() {
   return (
-    <DefaultTemplate title="Software learning sites">
+    <DefaultTemplate title="Software learning sites" introduction="Learn on these sites">
       <LinksGrid urls={urls} />
     </DefaultTemplate>
   )

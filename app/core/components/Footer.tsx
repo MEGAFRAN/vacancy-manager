@@ -1,13 +1,10 @@
 "use client"
 
 import React from "react"
-
-interface FooterProps {
-  urls: string[]
-}
+import styles from "../styles/components/footer.module.scss"
 
 const Footer: React.FC = () => (
-  <footer>
+  <footer className={styles.container}>
     <p>Francisco Cruz 2024</p>
   </footer>
 )

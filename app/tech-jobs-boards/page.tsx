@@ -26,7 +26,7 @@ const urls = [
 
 export default function Home() {
   return (
-    <DefaultTemplate title="Tech jobs boards">
+    <DefaultTemplate title="Tech jobs boards" introduction="Find jobs on these sites">
       <LinksGrid urls={urls} />
     </DefaultTemplate>
   )

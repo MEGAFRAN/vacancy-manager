@@ -19,7 +19,10 @@ const urls = [
 
 export default function Home() {
   return (
-    <DefaultTemplate title="Freelance tech jobs boards">
+    <DefaultTemplate
+      title="Freelance tech jobs boards"
+      introduction="Work as freelance on these sites"
+    >
       <LinksGrid urls={urls} />
     </DefaultTemplate>
   )
