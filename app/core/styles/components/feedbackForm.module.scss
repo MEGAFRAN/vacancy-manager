@@ -1,0 +1,14 @@
+@use "../mixins/html_tags/button";
+@use "../mixins/html_tags/input";
+
+.container {
+  display: flex;
+
+  input {
+    @include input.default();
+  }
+
+  button {
+    @include button.add();
+  }
+}

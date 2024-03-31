@@ -12,7 +12,7 @@
   input,
   textarea,
   select {
-    @include input.default();
+    @include input.border_bottom();
   }
 
   .button_container {

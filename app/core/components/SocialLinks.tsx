@@ -28,7 +28,6 @@ const socialLinks: SocialLink[] = [
 
 const SocialLinks: React.FC = () => (
   <>
-    <hr />
     <ul className={styles.container}>
       {socialLinks.map(({ name, url, svgPath, text }) => (
         <li key={name}>
