@@ -3,6 +3,7 @@
 import React from "react"
 import NavBar from "../NavBar"
 import Footer from "../Footer"
+import styles from "../../styles/templates/template.module.scss"
 
 interface DefaultTemplateProps {
   children: React.ReactNode
@@ -11,7 +12,7 @@ interface DefaultTemplateProps {
 }
 
 const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children, title, introduction }) => (
-  <>
+  <div className={styles.container}>
     <header>
       <NavBar />
     </header>
@@ -21,7 +22,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children, title, intr
       {children}
     </main>
     <Footer />
-  </>
+  </div>
 )
 
 export default DefaultTemplate

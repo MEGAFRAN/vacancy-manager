@@ -6,13 +6,13 @@ import SocialLinks from "./SocialLinks"
 import FeedbackForm from "./FeedbackForm"
 
 const Footer: React.FC = () => (
-  <>
+  <footer className={styles.container}>
     <hr />
-    <footer className={styles.container}>
+    <div className={styles.content}>
       <SocialLinks />
       <FeedbackForm />
-    </footer>
-  </>
+    </div>
+  </footer>
 )
 
 export default Footer
