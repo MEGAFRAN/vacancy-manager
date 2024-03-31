@@ -4,7 +4,7 @@ import React from "react"
 import NavBar from "../NavBar"
 import Footer from "../Footer"
 import styles from "../../styles/templates/template.module.scss"
-import SectionAnalytics from "../SectionAnalytics"
+import SectionAnalytics from "../../modules/analytics/SectionAnalytics"
 
 interface DefaultTemplateProps {
   children: React.ReactNode

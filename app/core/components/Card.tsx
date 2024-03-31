@@ -1,6 +1,16 @@
 import React from "react"
-import { CardData } from "../interfaces/components"
 import styles from "../styles/components/card.module.scss"
+
+interface CardData {
+  id: string
+  companyName: string
+  role: string
+  date: string
+  expectedSalary: string
+  jobDescription: string
+  comments: string
+  column: string
+}
 
 interface CardProps {
   data: CardData

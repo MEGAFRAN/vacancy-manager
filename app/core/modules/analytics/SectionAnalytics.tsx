@@ -1,4 +1,4 @@
-import { GTM_MAIN_SCRIPT, GTM_NO_SCRIPT } from "../constants/analytics/gtmScripts"
+import { GTM_MAIN_SCRIPT, GTM_NO_SCRIPT } from "./gtmScripts"
 
 const SectionAnalytics = () => (
   <>
