@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useLayoutEffect } from "react"
 import { CardData } from "../interfaces/components"
 import Card from "./Card"
 import NewCardForm from "./NewCardForm"
@@ -19,15 +19,23 @@ const initialColumns = [
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([])
+  const [isDemoCardDeleted, setIsDemoCardDeleted] = useState(true)
   const [showNewCardFormForColumnNumber, setShowNewCardFormForColumnNumber] = useState<
     number | null
   >(null)
+
+  useLayoutEffect(() => {
+    setIsDemoCardDeleted(localStorage.getItem("isDemoCardDeleted") === "true")
+  }, [])
 
   useEffect(() => {
     const allCards = initialColumns.flatMap((column) => {
       const columnCards = localStorage.getItem(`column-${column.number}`)
       return columnCards ? JSON.parse(columnCards) : []
     })
+
+    setIsDemoCardDeleted(localStorage.getItem("isDemoCardDeleted") === "true")
+
     setCards(allCards)
   }, [])
 
@@ -43,6 +51,10 @@ const Dashboard: React.FC = () => {
   }
 
   const handleDeleteCard = (id: string, columnNumber: number) => {
+    if (id === "demo") {
+      localStorage.setItem("isDemoCardDeleted", "true")
+      setIsDemoCardDeleted(true)
+    }
     const columnCards = JSON.parse(localStorage.getItem(`column-${columnNumber}`) || "[]")
     const updatedColumnCards = columnCards.filter((card: CardData) => card.id !== id)
     localStorage.setItem(`column-${columnNumber}`, JSON.stringify(updatedColumnCards))
@@ -65,8 +77,10 @@ const Dashboard: React.FC = () => {
       const newColumnCards = JSON.parse(
         localStorage.getItem(`column-${updatedCard.column}`) || "[]",
       )
-      const updatedNewColumnCards = [...newColumnCards, updatedCard]
-      localStorage.setItem(`column-${updatedCard.column}`, JSON.stringify(updatedNewColumnCards))
+      localStorage.setItem(
+        `column-${updatedCard.column}`,
+        JSON.stringify([...newColumnCards, updatedCard]),
+      )
     } else {
       const columnCards = JSON.parse(localStorage.getItem(`column-${updatedCard.column}`) || "[]")
       const updatedColumnCards = columnCards.map((card: CardData) =>
@@ -82,7 +96,22 @@ const Dashboard: React.FC = () => {
   return (
     <div className={styles.container}>
       {initialColumns.map((column) => {
-        const columnCards = cards.filter((card) => card.column === column.number.toString())
+        let columnCards = cards.filter((card) => card.column === column.number.toString())
+
+        if (column.number === 1 && columnCards.length === 0 && !isDemoCardDeleted) {
+          const demoCard = {
+            id: "demo",
+            companyName: "Ideal Company",
+            role: "Ideal role",
+            date: "2024-04-01",
+            expectedSalary: "9000 usd",
+            jobDescription: "Specific job description",
+            comments: "Happy company",
+            column: "1",
+          }
+          columnCards = [demoCard]
+        }
+
         return (
           <div key={column.number} className={styles.column}>
             <div className={styles.header}>
