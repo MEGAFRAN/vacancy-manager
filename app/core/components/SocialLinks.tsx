@@ -19,6 +19,12 @@ const socialLinks: SocialLink[] = [
     text: "Collaborate",
   },
   {
+    name: "Discord",
+    url: "https://discord.gg/7DwRKBTVXs",
+    svgPath: "/social_media/discord.svg",
+    text: "Join",
+  },
+  {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/isfranciscocruz",
     svgPath: "/social_media/linkedin.svg",
