@@ -7,55 +7,74 @@ import NewCardForm from "./NewCardForm"
 import styles from "../styles/components/dashboard.module.scss"
 
 const initialColumns = [
-  "Interested",
-  "Applied",
-  "Recruiter Interview",
-  "Tech Interview",
-  "Client Interview",
-  "HR Interview",
-  "Offer",
-  "Not Selected",
+  { number: 1, name: "Interested" },
+  { number: 2, name: "Applied" },
+  { number: 3, name: "Recruiter Interview" },
+  { number: 4, name: "Tech Interview" },
+  { number: 5, name: "Client Interview" },
+  { number: 6, name: "HR Interview" },
+  { number: 7, name: "Offer" },
+  { number: 8, name: "Not Selected" },
 ]
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([])
-  const [showNewCardFormForColumn, setShowNewCardFormForColumn] = useState<string>("")
+  const [showNewCardFormForColumnNumber, setShowNewCardFormForColumnNumber] = useState<
+    number | null
+  >(null)
 
   useEffect(() => {
     const allCards = initialColumns.flatMap((column) => {
-      const columnCards = localStorage.getItem(column)
+      const columnCards = localStorage.getItem(`column-${column.number}`)
       return columnCards ? JSON.parse(columnCards) : []
     })
     setCards(allCards)
   }, [])
 
-  const addNewCard = (newCardData: Omit<CardData, "id">, column: string) => {
-    const newCard: CardData = { ...newCardData, id: Date.now().toString(), column }
-
-    const columnCards = JSON.parse(localStorage.getItem(column) || "[]")
-    localStorage.setItem(column, JSON.stringify([...columnCards, newCard]))
-
+  const addNewCard = (newCardData: Omit<CardData, "id">, columnNumber: number) => {
+    const newCard: CardData = {
+      ...newCardData,
+      id: Date.now().toString(),
+      column: columnNumber.toString(),
+    }
+    const columnCards = JSON.parse(localStorage.getItem(`column-${columnNumber}`) || "[]")
+    localStorage.setItem(`column-${columnNumber}`, JSON.stringify([...columnCards, newCard]))
     setCards([...cards, newCard])
   }
 
-  const handleDeleteCard = (id: string, column: string) => {
-    // Update session storage
-    const columnCards = JSON.parse(localStorage.getItem(column) || "[]")
+  const handleDeleteCard = (id: string, columnNumber: number) => {
+    const columnCards = JSON.parse(localStorage.getItem(`column-${columnNumber}`) || "[]")
     const updatedColumnCards = columnCards.filter((card: CardData) => card.id !== id)
-    localStorage.setItem(column, JSON.stringify(updatedColumnCards))
-    // Update state
-    const updatedCards = cards.filter((card) => card.id !== id)
-    setCards(updatedCards)
+    localStorage.setItem(`column-${columnNumber}`, JSON.stringify(updatedColumnCards))
+    setCards(cards.filter((card) => card.id !== id))
   }
 
   const handleUpdateCard = (updatedCard: CardData) => {
-    // Update session storage
-    const columnCards = JSON.parse(localStorage.getItem(updatedCard.column) || "[]")
-    const updatedColumnCards = columnCards.map((card: CardData) =>
-      card.id === updatedCard.id ? updatedCard : card,
-    )
-    localStorage.setItem(updatedCard.column, JSON.stringify(updatedColumnCards))
-    // Update state
+    const originalCard = cards.find((card) => card.id === updatedCard.id)
+    const originalColumn = originalCard ? originalCard.column : null
+
+    if (originalColumn && originalColumn !== updatedCard.column) {
+      const originalColumnCards = JSON.parse(
+        localStorage.getItem(`column-${originalColumn}`) || "[]",
+      )
+      const filteredOriginalColumnCards = originalColumnCards.filter(
+        (card: CardData) => card.id !== updatedCard.id,
+      )
+      localStorage.setItem(`column-${originalColumn}`, JSON.stringify(filteredOriginalColumnCards))
+
+      const newColumnCards = JSON.parse(
+        localStorage.getItem(`column-${updatedCard.column}`) || "[]",
+      )
+      const updatedNewColumnCards = [...newColumnCards, updatedCard]
+      localStorage.setItem(`column-${updatedCard.column}`, JSON.stringify(updatedNewColumnCards))
+    } else {
+      const columnCards = JSON.parse(localStorage.getItem(`column-${updatedCard.column}`) || "[]")
+      const updatedColumnCards = columnCards.map((card: CardData) =>
+        card.id === updatedCard.id ? updatedCard : card,
+      )
+      localStorage.setItem(`column-${updatedCard.column}`, JSON.stringify(updatedColumnCards))
+    }
+
     const updatedCards = cards.map((card) => (card.id === updatedCard.id ? updatedCard : card))
     setCards(updatedCards)
   }
@@ -63,14 +82,14 @@ const Dashboard: React.FC = () => {
   return (
     <div className={styles.container}>
       {initialColumns.map((column) => {
-        const columnCards = cards.filter((card) => card.column === column)
+        const columnCards = cards.filter((card) => card.column === column.number.toString())
         return (
-          <div key={column} className={styles.column}>
+          <div key={column.number} className={styles.column}>
             <div className={styles.header}>
-              <h2>{column}</h2>
+              <h2>{column.name}</h2>
               <button
                 className={styles.add_button}
-                onClick={() => setShowNewCardFormForColumn(column)}
+                onClick={() => setShowNewCardFormForColumnNumber(column.number)}
               >
                 Add
               </button>
@@ -79,14 +98,15 @@ const Dashboard: React.FC = () => {
               <Card
                 key={cardData.id}
                 data={cardData}
-                onDelete={() => handleDeleteCard(cardData.id, column)}
+                onDelete={() => handleDeleteCard(cardData.id, column.number)}
                 onUpdate={handleUpdateCard}
+                columns={initialColumns}
               />
             ))}
-            {showNewCardFormForColumn === column && (
+            {showNewCardFormForColumnNumber === column.number && (
               <NewCardForm
-                onClose={() => setShowNewCardFormForColumn("")}
-                onSave={(cardData) => addNewCard(cardData, column)}
+                onClose={() => setShowNewCardFormForColumnNumber(null)}
+                onSave={(cardData) => addNewCard(cardData, column.number)}
               />
             )}
           </div>

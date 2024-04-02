@@ -1,6 +1,4 @@
-import Footer from "../core/components/Footer"
 import LinksGrid from "../core/components/LinkGrid"
-import NavBar from "../core/components/NavBar"
 import DefaultTemplate from "../core/components/layout/Template"
 
 const urls = [
