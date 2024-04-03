@@ -8,15 +8,14 @@ describe("gtmEvents", () => {
     jest.clearAllMocks()
   })
 
-  describe("formSubmit event", () => {
+  describe("add tech job card event", () => {
     it("should call feedDataLayer with the given data and default event", () => {
-      const data = { key: "value" }
-      const defaultEvent = "analytics_event"
-      const trigger = "form_submit"
+      const eventName = "add_tech_job_card"
+      const data = { eventName, key: "value" }
 
-      gtmEvents.formSubmit(data)
+      gtmEvents.addTechJobCard(data)
 
-      expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(defaultEvent, trigger, data)
+      expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(data)
     })
   })
 })

@@ -1,6 +1,6 @@
 import Script from "next/script"
 
-const SectionAnalytics = () => (
+const SectionAnalytics: React.FC = () => (
   <>
     <Script
       strategy="afterInteractive"

@@ -1,10 +1,8 @@
 import googleTagService from "../datalayer/google-tag-datalayer.service"
 
-const analyticsEvent = "analytics_event"
-
 const gtmEvents = {
-  formSubmit(data: Record<string, any>, trigger = "form_submit", event = analyticsEvent): void {
-    googleTagService.feedDataLayer(event, trigger, data)
+  addTechJobCard(data: Record<string, any>): void {
+    googleTagService.feedDataLayer({ eventName: "add_tech_job_card", ...data })
   },
 }
 export default gtmEvents

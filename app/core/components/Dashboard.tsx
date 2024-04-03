@@ -5,6 +5,7 @@ import { CardData } from "../interfaces/components"
 import Card from "./Card"
 import NewCardForm from "./NewCardForm"
 import styles from "../styles/components/dashboard.module.scss"
+import gtmEvents from "../modules/analytics/events/google-tag-events.service"
 
 const initialColumns = [
   { number: 1, name: "Interested" },
@@ -48,6 +49,7 @@ const Dashboard: React.FC = () => {
     const columnCards = JSON.parse(localStorage.getItem(`column-${columnNumber}`) || "[]")
     localStorage.setItem(`column-${columnNumber}`, JSON.stringify([...columnCards, newCard]))
     setCards([...cards, newCard])
+    gtmEvents.addTechJobCard({})
   }
 
   const handleDeleteCard = (id: string, columnNumber: number) => {
