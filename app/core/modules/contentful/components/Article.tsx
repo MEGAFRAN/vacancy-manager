@@ -15,6 +15,7 @@ interface ArticleProps {
 
 const Article: React.FC<ArticleProps> = ({ articleData }) => {
   const { articleImage, sys, slug, title, categoryName, summary, authorName } = articleData
+  const href = `/blog/articles/${slug}`
 
   return (
     <article key={sys.id} className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden">
@@ -26,7 +27,7 @@ const Article: React.FC<ArticleProps> = ({ articleData }) => {
         width="350"
       />
       <div className="flex-1 p-6">
-        <Link href={`/blog/articles/${slug}`}>
+        <Link href={href}>
           <h3 className="text-2xl font-bold leading-tight text-zinc-900 dark:text-zinc-50  py-4">
             {title}
           </h3>
@@ -41,7 +42,7 @@ const Article: React.FC<ArticleProps> = ({ articleData }) => {
         <div className="flex justify-end">
           <Link
             className="inline-flex h-10 items-center justify-center text-sm font-medium"
-            href={`/articles/${slug}`}
+            href={href}
           >
             Read More →
           </Link>
