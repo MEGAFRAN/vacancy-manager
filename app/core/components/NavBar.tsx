@@ -8,9 +8,9 @@ const NavBar: React.FC = () => (
   <nav className={styles.container}>
     <span>Tools: </span>
     <Link href={"/"}>Tech jobs tracker</Link>
-    <Link href={"/tech-jobs-boards"}>Tech jobs boards</Link>
-    <Link href={"/freelance-tech-jobs-boards"}>Freelance tech jobs boards</Link>
-    <Link href={"/software-learning-sites"}>Software learning sites</Link>
+    <Link href={"/directories/tech-jobs-boards"}>Tech jobs boards</Link>
+    <Link href={"/directories/freelance-tech-jobs-boards"}>Freelance tech jobs boards</Link>
+    <Link href={"/directories/software-learning-sites"}>Software learning sites</Link>
   </nav>
 )
 

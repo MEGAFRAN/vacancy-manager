@@ -1,5 +1,6 @@
 /* stylelint-disable scss/at-rule-no-unknown */
-@tailwind base;
+
+/* @tailwind base;  disabled because it was conflicting with scss */
 @tailwind components;
 @tailwind utilities;
 
