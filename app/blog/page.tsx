@@ -1,4 +1,4 @@
-import { getAllArticles } from "../core/modules/contentful/api"
+import { getAllArticles } from "../core/modules/contentful/articles"
 import Article from "../core/modules/contentful/components/Article"
 
 export default async function Home() {
