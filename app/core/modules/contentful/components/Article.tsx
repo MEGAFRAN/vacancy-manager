@@ -15,7 +15,7 @@ interface ArticleProps {
 
 const Article: React.FC<ArticleProps> = ({ articleData }) => {
   const { articleImage, sys, slug, title, categoryName, summary, authorName } = articleData
-  const href = `/blog/articles/${slug}`
+  const href = `/blog/${slug}`
 
   return (
     <article key={sys.id} className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden">
