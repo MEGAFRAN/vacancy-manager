@@ -61,6 +61,7 @@ const Dashboard: React.FC = () => {
     const updatedColumnCards = columnCards.filter((card: CardData) => card.id !== id)
     localStorage.setItem(`column-${columnNumber}`, JSON.stringify(updatedColumnCards))
     setCards(cards.filter((card) => card.id !== id))
+    gtmEvents.deleteTechJobCard({})
   }
 
   const handleUpdateCard = (updatedCard: CardData) => {

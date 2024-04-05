@@ -18,4 +18,14 @@ describe("gtmEvents", () => {
       expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(data)
     })
   })
+  describe("delete tech job card event", () => {
+    it("should call feedDataLayer with the given data and default event", () => {
+      const eventName = "delete_tech_job_card"
+      const data = { eventName, key: "value" }
+
+      gtmEvents.deleteTechJobCard(data)
+
+      expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(data)
+    })
+  })
 })
