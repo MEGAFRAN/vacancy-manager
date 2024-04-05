@@ -14,13 +14,11 @@ export async function fetchGraphQL(query: string, preview = false) {
         }`,
       },
       body: JSON.stringify({ query }),
-      // Associate all fetches for articles with an "articles" cache tag so content can
-      // be revalidated or updated from Contentful on publish
-      next: { tags: ["articles"] },
+      next: {},
     },
   ).then((response) => response.json())
 }
 
-export function extractEntries(fetchResponse: any) {
-  return fetchResponse?.data?.pageCollection?.items
+export function extractEntries(fetchResponse: any, collection: string) {
+  return fetchResponse?.data?.[collection]?.items
 }

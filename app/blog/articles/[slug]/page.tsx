@@ -1,8 +1,8 @@
-import { getAllArticles, getArticle } from "@/app/core/modules/contentful/articles"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { draftMode } from "next/headers"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { getAllArticles, getArticle } from "@/app/core/modules/contentful/content_types/articles"
 
 export async function generateStaticParams() {
   const allArticles = await getAllArticles()

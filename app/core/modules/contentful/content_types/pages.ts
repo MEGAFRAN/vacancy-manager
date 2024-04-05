@@ -1,4 +1,4 @@
-import { extractEntries, fetchGraphQL } from "./queryService"
+import { extractEntries, fetchGraphQL } from "../queryService"
 
 const PAGE_GRAPHQL_FIELDS = `
   sys {
@@ -24,10 +24,12 @@ const PAGE_GRAPHQL_FIELDS = `
   }
 `
 
-export async function getAllPages(isDraftMode = false) {
+export async function getAllPages(limit = 10, isDraftMode = false) {
   const pages = await fetchGraphQL(
     `query {
-        pageCollection(where:{slug_exists: true}, preview: ${isDraftMode ? "true" : "false"}) {
+        pageCollection(where:{slug_exists: true}, limit: ${limit}, preview: ${
+      isDraftMode ? "true" : "false"
+    }) {
           items {
             ${PAGE_GRAPHQL_FIELDS}
           }
@@ -35,7 +37,7 @@ export async function getAllPages(isDraftMode = false) {
       }`,
     isDraftMode,
   )
-  return extractEntries(pages)
+  return extractEntries(pages, "pageCollection")
 }
 
 export async function getPage(slug: string, isDraftMode = false) {
@@ -51,5 +53,5 @@ export async function getPage(slug: string, isDraftMode = false) {
       }`,
     isDraftMode,
   )
-  return extractEntries(page)[0]
+  return extractEntries(page, "pageCollection")[0]
 }

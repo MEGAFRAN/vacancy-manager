@@ -1,7 +1,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
-import { getAllPages, getPage } from "../core/modules/contentful/page"
+import { getAllPages, getPage } from "../core/modules/contentful/content_types/pages"
 
 export async function generateStaticParams() {
   const allPages = await getAllPages()
