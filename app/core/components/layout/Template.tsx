@@ -8,8 +8,8 @@ import SectionAnalytics from "../../modules/analytics/components/SectionAnalytic
 
 interface DefaultTemplateProps {
   children: React.ReactNode
-  title: string
-  introduction: string
+  title?: string
+  introduction?: string
 }
 
 const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children, title, introduction }) => (
@@ -18,8 +18,8 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children, title, intr
       <NavBar />
     </header>
     <main>
-      <h1 style={{ textAlign: "center" }}>{title}</h1>
-      <p style={{ textAlign: "center" }}>{introduction}</p>
+      {title && <h1 style={{ textAlign: "center" }}>{title}</h1>}
+      {introduction && <p style={{ textAlign: "center" }}>{introduction}</p>}
       {children}
     </main>
     <Footer />
