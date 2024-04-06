@@ -1,9 +1,3 @@
-/* stylelint-disable scss/at-rule-no-unknown */
-
-/* @tailwind base;  disabled because it was conflicting with scss */
-@tailwind components;
-@tailwind utilities;
-
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
