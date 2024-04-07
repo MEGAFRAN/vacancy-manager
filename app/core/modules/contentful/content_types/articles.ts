@@ -1,5 +1,7 @@
+import { Article } from "../interfaces"
 import { extractEntries, fetchGraphQL } from "../queryService"
 
+const collection = "knowledgeArticleCollection"
 const ARTICLE_GRAPHQL_FIELDS = `
   sys {
     id
@@ -29,34 +31,28 @@ const ARTICLE_GRAPHQL_FIELDS = `
   }
 `
 
-export async function getAllArticles(limit = 3, isDraftMode = false) {
+export async function getAllArticles(limit = 3): Promise<Article[]> {
   const articles = await fetchGraphQL(
     `query {
-        knowledgeArticleCollection(where:{slug_exists: true}, order: date_DESC, limit: ${limit}, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+      ${collection}(where:{slug_exists: true}, order: date_DESC, limit: ${limit}) {
           items {
             ${ARTICLE_GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
-  return extractEntries(articles, "knowledgeArticleCollection")
+  return extractEntries(articles, collection)
 }
 
-export async function getArticle(slug: any, isDraftMode = false) {
+export async function getArticle(slug: string): Promise<Article> {
   const article = await fetchGraphQL(
     `query {
-        knowledgeArticleCollection(where:{slug: "${slug}"}, limit: 1, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+      ${collection}(where:{slug: "${slug}"}, limit: 1) {
           items {
             ${ARTICLE_GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
-  return extractEntries(article, "knowledgeArticleCollection")[0]
+  return extractEntries(article, collection)[0]
 }

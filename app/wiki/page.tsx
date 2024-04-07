@@ -3,7 +3,7 @@ import DefaultTemplate from "../core/components/layout/Template"
 import { getAllPages } from "../core/modules/contentful/content_types/wikiPages"
 
 export default async function Home() {
-  const sections = await getAllPages()
+  const pages = await getAllPages()
 
   return (
     <DefaultTemplate
@@ -18,9 +18,9 @@ export default async function Home() {
           textTransform: "capitalize",
         }}
       >
-        {sections.map((section: any) => (
-          <Link key={section.title} href={`/wiki/${section.slug}`}>
-            {section.title}
+        {pages.map(({ title, slug }) => (
+          <Link key={title} href={`/wiki/${slug}`}>
+            {title}
           </Link>
         ))}
       </nav>

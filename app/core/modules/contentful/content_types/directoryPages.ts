@@ -1,3 +1,4 @@
+import { DirectoryPage } from "../interfaces"
 import { extractEntries, fetchGraphQL } from "../queryService"
 
 const collection = "directoryPageCollection"
@@ -11,34 +12,28 @@ const GRAPHQL_FIELDS = `
   metadata
 `
 
-export async function getAllPages(limit = 10, isDraftMode = false) {
+export async function getAllPages(limit = 10): Promise<DirectoryPage[]> {
   const pages = await fetchGraphQL(
     `query {
-        ${collection}(where:{slug_exists: true}, limit: ${limit}, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+        ${collection}(where:{slug_exists: true}, limit: ${limit}) {
           items {
             ${GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
   return extractEntries(pages, collection)
 }
 
-export async function getPage(slug: string, isDraftMode = false) {
+export async function getPage(slug: string): Promise<DirectoryPage> {
   const page = await fetchGraphQL(
     `query {
-        ${collection}(where:{slug: "${slug}"}, limit: 1, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+        ${collection}(where:{slug: "${slug}"}, limit: 1) {
           items {
             ${GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
   return extractEntries(page, collection)[0]
 }

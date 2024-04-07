@@ -1,20 +1,19 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { draftMode } from "next/headers"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getAllArticles, getArticle } from "@/app/core/modules/contentful/content_types/articles"
+import { Article } from "@/app/core/modules/contentful/interfaces"
 
 export async function generateStaticParams() {
   const allArticles = await getAllArticles()
 
-  return allArticles.map((article: any) => ({
+  return allArticles.map((article: Article) => ({
     slug: article.slug,
   }))
 }
 
 export default async function KnowledgeArticlePage({ params }: any) {
-  const { isEnabled } = draftMode()
-  const article = await getArticle(params.slug, isEnabled)
+  const article = await getArticle(params.slug)
 
   if (!article) {
     notFound()
@@ -41,7 +40,7 @@ export default async function KnowledgeArticlePage({ params }: any) {
             <div className="space-y-4 md:space-y-6">
               <div className="space-y-2">
                 <div className="max-w-[900px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
-                  {documentToReactComponents(article.details.json)}
+                  {documentToReactComponents(article?.details?.json)}
                 </div>
               </div>
             </div>

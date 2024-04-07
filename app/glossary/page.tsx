@@ -1,13 +1,9 @@
 import Link from "next/link"
 import DefaultTemplate from "../core/components/layout/Template"
+import { getAllPages } from "../core/modules/contentful/content_types/glossaryPages"
 
-export default function Home() {
-  const sections = [
-    { name: "Applicant Screening", slug: "applicant-screening" },
-    { name: "Behavioral Assessment", slug: "behavioral-assessment" },
-    { name: "Cultural Fit", slug: "cultural-fit" },
-    { name: "Employee Referral Program", slug: "employee-referral-program" },
-  ]
+export default async function Home() {
+  const pages = await getAllPages()
 
   return (
     <DefaultTemplate
@@ -22,9 +18,9 @@ export default function Home() {
           textTransform: "capitalize",
         }}
       >
-        {sections.map((section) => (
-          <Link key={section.name} href={`/glossary/${section.slug}`}>
-            {section.name}
+        {pages.map(({ title, slug }) => (
+          <Link key={title} href={`/glossary/${slug}`}>
+            {title}
           </Link>
         ))}
       </nav>

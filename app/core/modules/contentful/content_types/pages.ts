@@ -1,5 +1,7 @@
+import { Page } from "../interfaces"
 import { extractEntries, fetchGraphQL } from "../queryService"
 
+const collection = "pageCollection"
 const PAGE_GRAPHQL_FIELDS = `
   sys {
     id
@@ -24,34 +26,28 @@ const PAGE_GRAPHQL_FIELDS = `
   }
 `
 
-export async function getAllPages(limit = 10, isDraftMode = false) {
+export async function getAllPages(limit = 10): Promise<Page[]> {
   const pages = await fetchGraphQL(
     `query {
-        pageCollection(where:{slug_exists: true}, limit: ${limit}, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+      ${collection}(where:{slug_exists: true}, limit: ${limit}) {
           items {
             ${PAGE_GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
-  return extractEntries(pages, "pageCollection")
+  return extractEntries(pages, collection)
 }
 
-export async function getPage(slug: string, isDraftMode = false) {
+export async function getPage(slug: string): Promise<Page> {
   const page = await fetchGraphQL(
     `query {
-        pageCollection(where:{slug: "${slug}"}, limit: 1, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
+      ${collection}(where:{slug: "${slug}"}, limit: 1) {
           items {
             ${PAGE_GRAPHQL_FIELDS}
           }
         }
       }`,
-    isDraftMode,
   )
-  return extractEntries(page, "pageCollection")[0]
+  return extractEntries(page, collection)[0]
 }
