@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { getAllPages, getPage } from "../../core/modules/contentful/content_types/wikiPages"
+import { getAllPages, getPage } from "../../core/modules/contentful/content_types/glossaryPages"
 import DefaultTemplate from "../../core/components/layout/Template"
 
 export async function generateStaticParams() {

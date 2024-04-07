@@ -24,7 +24,7 @@ const GRAPHQL_FIELDS = `
   }
 `
 
-export async function getAllPages(limit = 10, isDraftMode = false, section = "wiki") {
+export async function getAllPages(limit = 50, isDraftMode = false, section = "glossary") {
   const pages = await fetchGraphQL(
     `query {
         ${collection}(where:{slug_exists: true, section: "${section}"}, limit: ${limit}, preview: ${

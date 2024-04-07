@@ -10,6 +10,7 @@ const NavBar: React.FC = () => (
     <Link href={"/"}>Tech jobs tracker</Link>
     <Link href={"/directories/tech-jobs-boards"}>Tech jobs boards</Link>
     <Link href={"/directories/freelance-tech-jobs-boards"}>Freelance tech jobs boards</Link>
+    <Link href={"/glossary"}>Tech jobs glossary</Link>
     <Link href={"/directories/software-learning-sites"}>Software learning sites</Link>
   </nav>
 )
