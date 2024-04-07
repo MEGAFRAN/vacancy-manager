@@ -1,6 +1,6 @@
 export async function fetchGraphQL(query: string, preview = false) {
   return fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
     {
       method: "POST",
       headers: {
@@ -16,7 +16,9 @@ export async function fetchGraphQL(query: string, preview = false) {
       body: JSON.stringify({ query }),
       next: {},
     },
-  ).then((response) => response.json())
+  )
+    .then((response) => response.json())
+    .catch((error) => console.error(error))
 }
 
 export function extractEntries(fetchResponse: any, collection: string) {

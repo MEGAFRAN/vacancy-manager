@@ -1,17 +1,9 @@
 import Link from "next/link"
 import DefaultTemplate from "../core/components/layout/Template"
+import { getAllPages } from "../core/modules/contentful/content_types/wikiPages"
 
-export default function Home() {
-  const sections = [
-    { name: "ux", slug: "ux" },
-    { name: "frontend ui", slug: "frontend-ui" },
-    { name: "frontend logic", slug: "frontend-logic" },
-    { name: "accessibility", slug: "accessibility" },
-    { name: "web performance", slug: "web-performance" },
-    { name: "seo", slug: "/seo" },
-    { name: "web analytics", slug: "web-analytics" },
-    { name: "devops", slug: "devops" },
-  ]
+export default async function Home() {
+  const sections = await getAllPages()
 
   return (
     <DefaultTemplate
@@ -26,9 +18,9 @@ export default function Home() {
           textTransform: "capitalize",
         }}
       >
-        {sections.map((section) => (
-          <Link key={section.name} href={`/wiki/${section.slug}`}>
-            {section.name}
+        {sections.map((section: any) => (
+          <Link key={section.title} href={`/wiki/${section.slug}`}>
+            {section.title}
           </Link>
         ))}
       </nav>
