@@ -1,6 +1,7 @@
 import { GlossaryPage } from "@/app/core/modules/contentful/interfaces"
 import { notFound } from "next/navigation"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Post from "@/app/core/components/layout/Post"
 import { getAllPages, getPage } from "../../core/modules/contentful/content_types/glossaryPages"
 import DefaultTemplate from "../../core/components/layout/Template"
 
@@ -21,7 +22,7 @@ export default async function wikiPage({ params }: any) {
 
   return (
     <DefaultTemplate>
-      <div>{documentToReactComponents(page?.details?.json)}</div>
+      <Post>{documentToReactComponents(page?.details?.json)}</Post>
     </DefaultTemplate>
   )
 }
