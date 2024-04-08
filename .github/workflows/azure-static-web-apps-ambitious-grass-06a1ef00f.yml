@@ -10,28 +10,28 @@ on:
       - main
 
 jobs:
-run_tests:
-  if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-  runs-on: ubuntu-latest
-  name: Run Tests
-  steps:
-    - uses: actions/checkout@v4
-    - name: Cache Node modules
-      uses: actions/cache@v4
-      with:
-        path: |
-          ~/.npm
-          node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Install Dependencies
-      run: npm install
-    - name: Run Tests
-      run: npm run test
+  tests:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Run Tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache Node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm run test
 
-  build_job:
-    needs: run_tests
+  build:
+    needs: tests
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build Job
@@ -49,8 +49,8 @@ run_tests:
       - name: Build
         run: npm run build
 
-  deploy_job:
-    needs: build_job
+  deploy:
+    needs: build
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Deploy Job

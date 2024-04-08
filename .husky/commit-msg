@@ -3,7 +3,7 @@
 
 commitMessageFile="$1"
 commitMessage=$(cat "$commitMessageFile")
-commitRegex="^(chore|docs|feat|fix|refactor|style|test) "
+commitRegex="^(chore|docs|feat|fix|refactor|style|test)"
 
 if ! [[ $commitMessage =~ $commitRegex ]]; then
   echo "Error: Commit message does not match required pattern https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716"
