@@ -5,7 +5,7 @@ import { CardData } from "../interfaces/components"
 import Card from "./Card"
 import NewCardForm from "./NewCardForm"
 import styles from "../styles/components/dashboard.module.scss"
-import gtmEvents from "../modules/analytics/events/google-tag-events.service"
+import gtmEvents from "../modules/analytics/google-tag-events.service"
 
 const initialColumns = [
   { number: 1, name: "Interested" },

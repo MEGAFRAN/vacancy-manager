@@ -1,9 +1,11 @@
 import Link from "next/link"
 import DefaultTemplate from "../core/components/layout/Template"
-import { getAllPages } from "../core/modules/contentful/content_types/wikiPages"
+import { getAllPages } from "../core/modules/contentful/queryService"
+import wikiPagesArguments from "../core/modules/contentful/content_types/wikiPages"
 
 export default async function Home() {
-  const pages = await getAllPages()
+  const { collection, fields, limit, section } = wikiPagesArguments
+  const pages = await getAllPages(collection, fields, limit, section)
 
   return (
     <DefaultTemplate

@@ -1,4 +1,4 @@
-import googleTagService from "../datalayer/google-tag-datalayer.service"
+import googleTagService from "./google-tag-datalayer.service"
 
 const gtmEvents = {
   addTechJobCard(data: Record<string, any>): void {

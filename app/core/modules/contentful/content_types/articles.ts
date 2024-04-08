@@ -2,7 +2,7 @@ import { Article } from "../interfaces"
 import { extractEntries, fetchGraphQL } from "../queryService"
 
 const collection = "knowledgeArticleCollection"
-const ARTICLE_GRAPHQL_FIELDS = `
+const fields = `
   sys {
     id
   }
@@ -36,7 +36,7 @@ export async function getAllArticles(limit = 3): Promise<Article[]> {
     `query {
       ${collection}(where:{slug_exists: true}, order: date_DESC, limit: ${limit}) {
           items {
-            ${ARTICLE_GRAPHQL_FIELDS}
+            ${fields}
           }
         }
       }`,
@@ -44,15 +44,10 @@ export async function getAllArticles(limit = 3): Promise<Article[]> {
   return extractEntries(articles, collection)
 }
 
-export async function getArticle(slug: string): Promise<Article> {
-  const article = await fetchGraphQL(
-    `query {
-      ${collection}(where:{slug: "${slug}"}, limit: 1) {
-          items {
-            ${ARTICLE_GRAPHQL_FIELDS}
-          }
-        }
-      }`,
-  )
-  return extractEntries(article, collection)[0]
+const articlePagesArguments = {
+  collection: "knowledgeArticleCollection",
+  fields,
+  limit: 3,
 }
+
+export default articlePagesArguments

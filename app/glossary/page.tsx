@@ -1,9 +1,11 @@
 import Link from "next/link"
 import DefaultTemplate from "../core/components/layout/Template"
-import { getAllPages } from "../core/modules/contentful/content_types/glossaryPages"
+import { getAllPages } from "../core/modules/contentful/queryService"
+import glossaryPagesArguments from "../core/modules/contentful/content_types/glossaryPages"
 
 export default async function Home() {
-  const pages = await getAllPages()
+  const { collection, fields, limit, section } = glossaryPagesArguments
+  const pages = await getAllPages(collection, fields, limit, section)
 
   return (
     <DefaultTemplate

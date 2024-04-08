@@ -2,19 +2,21 @@ import { notFound } from "next/navigation"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { WikiPage } from "@/app/core/modules/contentful/interfaces"
 import Post from "@/app/core/components/layout/Post"
-import { getAllPages, getPage } from "../../core/modules/contentful/content_types/wikiPages"
+import { getAllPages, getPage } from "@/app/core/modules/contentful/queryService"
+import wikiPagesArguments from "@/app/core/modules/contentful/content_types/wikiPages"
 import DefaultTemplate from "../../core/components/layout/Template"
 
+const { collection, fields, limit, section } = wikiPagesArguments
 export async function generateStaticParams() {
-  const allPages = await getAllPages()
+  const allPages = await getAllPages(collection, fields, limit, section)
 
   return allPages.map((page: WikiPage) => ({
     slug: page.slug,
   }))
 }
 
-export default async function wikiPage({ params }: any) {
-  const page = await getPage(params.slug)
+export default async function Home({ params }: any) {
+  const page = await getPage(collection, fields, params.slug)
 
   if (!page) {
     notFound()

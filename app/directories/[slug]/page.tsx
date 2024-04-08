@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation"
 import LinksGrid from "@/app/core/components/LinkGrid"
 import { DirectoryPage } from "@/app/core/modules/contentful/interfaces"
-import { getAllPages, getPage } from "../../core/modules/contentful/content_types/directoryPages"
+import directoryPagesArguments from "@/app/core/modules/contentful/content_types/directoryPages"
+import { getAllPages, getPage } from "@/app/core/modules/contentful/queryService"
 import DefaultTemplate from "../../core/components/layout/Template"
 
+const { collection, fields, limit } = directoryPagesArguments
 export async function generateStaticParams() {
-  const allPages = await getAllPages()
+  const allPages = await getAllPages(collection, fields, limit)
 
   return allPages.map((page: DirectoryPage) => ({
     slug: page.slug,
@@ -13,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 export default async function directoryPage({ params }: any) {
-  const page = await getPage(params.slug)
+  const page = await getPage(collection, fields, params.slug)
 
   if (!page) {
     notFound()

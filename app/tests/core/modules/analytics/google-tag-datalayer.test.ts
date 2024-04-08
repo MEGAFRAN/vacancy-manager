@@ -1,4 +1,4 @@
-import googleTagService from "./google-tag-datalayer.service"
+import googleTagService from "@/app/core/modules/analytics/google-tag-datalayer.service"
 
 describe("googleTagService", () => {
   beforeEach(() => {

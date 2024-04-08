@@ -1,9 +1,13 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getAllArticles, getArticle } from "@/app/core/modules/contentful/content_types/articles"
+import articlePagesArguments, {
+  getAllArticles,
+} from "@/app/core/modules/contentful/content_types/articles"
 import { Article } from "@/app/core/modules/contentful/interfaces"
+import { getPage } from "@/app/core/modules/contentful/queryService"
 
+const { collection, fields, limit } = articlePagesArguments
 export async function generateStaticParams() {
   const allArticles = await getAllArticles()
 
@@ -13,7 +17,7 @@ export async function generateStaticParams() {
 }
 
 export default async function KnowledgeArticlePage({ params }: any) {
-  const article = await getArticle(params.slug)
+  const article = await getPage(collection, fields, params.slug)
 
   if (!article) {
     notFound()

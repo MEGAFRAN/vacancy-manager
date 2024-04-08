@@ -1,7 +1,7 @@
-import gtmEvents from "../google-tag-events.service"
-import googleTagService from "../google-tag-datalayer.service"
+import googleTagService from "@/app/core/modules/analytics/google-tag-datalayer.service"
+import gtmEvents from "@/app/core/modules/analytics/google-tag-events.service"
 
-jest.mock("../google-tag-datalayer.service")
+jest.mock("app/core/modules/analytics/google-tag-datalayer.service")
 
 describe("gtmEvents", () => {
   afterEach(() => {
