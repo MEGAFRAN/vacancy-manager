@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+commitMessageFile="$1"
+commitMessage=$(cat "$commitMessageFile")
+commitRegex="^(chore|docs|feat|fix|refactor|style|test) "
+
+if ! [[ $commitMessage =~ $commitRegex ]]; then
+  echo "Error: Commit message does not match required pattern https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716"
+  echo "Your commit message was: ('$commitMessage')"
+  exit 1
+fi
+
+exit 0
