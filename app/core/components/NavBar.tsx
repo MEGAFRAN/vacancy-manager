@@ -8,6 +8,7 @@ const NavBar: React.FC = () => (
   <nav className={styles.container}>
     <span>Tools: </span>
     <Link href={"/"}>Tech jobs tracker</Link>
+    <Link href={"/job-description-required-skills"}>Job description required skills</Link>
     <Link href={"/directories/tech-jobs-boards"}>Tech jobs boards</Link>
     <Link href={"/directories/freelance-tech-jobs-boards"}>Freelance tech jobs boards</Link>
     <Link href={"/glossary"}>Tech jobs glossary</Link>

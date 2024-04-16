@@ -1,0 +1,34 @@
+@use "../mixins/html_tags/button";
+@use "../mixins/html_tags/textArea";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 20px;
+
+  textArea {
+    height: 20vh;
+    width: 80vw;
+    max-width: 800px;
+    @include textArea.default();
+  }
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    li {
+      &::marker {
+        font-weight: bold;
+      }
+    }
+  }
+
+  button {
+    @include button.add();
+  }
+}

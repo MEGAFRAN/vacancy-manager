@@ -33,17 +33,15 @@ const socialLinks: SocialLink[] = [
 ]
 
 const SocialLinks: React.FC = () => (
-  <>
-    <ul className={styles.container}>
-      {socialLinks.map(({ name, url, svgPath, text }) => (
-        <li key={name}>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <Image src={svgPath} alt={name} width={30} height={30} /> {text}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </>
+  <ul className={styles.container}>
+    {socialLinks.map(({ name, url, svgPath, text }) => (
+      <li key={name}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <Image src={svgPath} alt={name} width={30} height={30} /> {text}
+        </a>
+      </li>
+    ))}
+  </ul>
 )
 
 export default SocialLinks
