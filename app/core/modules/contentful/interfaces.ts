@@ -30,8 +30,8 @@ export interface GlossaryPage extends Entry {
 }
 
 export interface DirectoryPage extends Entry {
-  content: { links: string[] }
-  metadata: Record<string, string>
+  content: { h1: string; h1Paragraph: string; links: string[] }
+  metadata: { canonicalUrl: string; title: string; description: string }
 }
 
 export interface Article extends Entry {
