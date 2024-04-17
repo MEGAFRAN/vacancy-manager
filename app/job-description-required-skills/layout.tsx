@@ -4,12 +4,12 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tech jobs club | Clubtal",
-  description: `Community that helps to find tech jobs,
-
-  By sharing experiences and building tools to improve your job search,
-  
-  Anyone can gain experience by helping building these tools`,
+  title: "Required skills for job description",
+  description:
+    "Add a job description on the text box, then click analyze to see the most important requirements",
+  alternates: {
+    canonical: "http://clubtal.com/job-description-required-skills",
+  },
 }
 
 export default function RootLayout({

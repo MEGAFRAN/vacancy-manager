@@ -5,12 +5,12 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tech jobs club | Clubtal",
-  description: `Community that helps to find tech jobs,
-
-  By sharing experiences and building tools to improve your job search,
-  
-  Anyone can gain experience by helping building these tools`,
+  title: "Tech jobs tools | Clubtal",
+  description:
+    "Community that helps to find tech jobs, By sharing experiences and building tools to improve your job search, Anyone can gain experience by helping building these tools",
+  alternates: {
+    canonical: "http://clubtal.com",
+  },
 }
 
 export default function RootLayout({
