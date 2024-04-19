@@ -4,7 +4,7 @@ import DefaultTemplate from "../core/components/layout/Template"
 
 const Home: NextPage = () => (
   <DefaultTemplate
-    title="Job description required skills"
+    title="Job description analyzer"
     introduction="Add a job description on the text box, then click analyze to see the most important requirements"
   >
     <WordCounter />

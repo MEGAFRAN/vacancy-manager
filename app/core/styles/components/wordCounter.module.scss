@@ -28,7 +28,16 @@
     }
   }
 
-  button {
-    @include button.add();
+  .button_control {
+    display: flex;
+    gap: 20px;
+
+    button.analyze {
+      @include button.add();
+    }
+
+    button.clear {
+      @include button.delete();
+    }
   }
 }

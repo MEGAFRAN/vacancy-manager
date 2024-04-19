@@ -4,11 +4,11 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Required skills for job description",
+  title: "Job description analyzer",
   description:
     "Add a job description on the text box, then click analyze to see the most important requirements",
   alternates: {
-    canonical: "http://clubtal.com/job-description-required-skills",
+    canonical: "http://clubtal.com/job-description-analyzer",
   },
 }
 

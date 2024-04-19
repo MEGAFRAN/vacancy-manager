@@ -102,6 +102,8 @@ const UserInterfaceDesign = [
   "CSS3",
   "Sass",
   "Less",
+  "bem",
+  "Styled Components",
   "Bootstrap",
   "Foundation",
   "Materialize",
@@ -151,9 +153,31 @@ const SoftwareTesting = [
   "Mobile Testing",
 ]
 
-const DataScienceAndAnalytics = [
+const Analytics = [
   "Analytics",
   "Google Analytics",
+  "google tag manager",
+  "gtm",
+  "bigquery",
+  "big query",
+  "adobe analytics",
+  "adobe launch",
+  "adobe dtm",
+  "adobe target",
+  "adobe audience manager",
+  "cdp",
+  "dmp",
+  "tealium",
+  "Tableau",
+  "Power BI",
+  "Data Visualization",
+  "D3.js",
+  "Highcharts",
+  "AmCharts",
+  "one trust",
+]
+
+const DataScience = [
   "Data Analysis",
   "Big Data",
   "Hadoop",
@@ -173,12 +197,6 @@ const DataScienceAndAnalytics = [
   "R",
   "MATLAB",
   "Julia",
-  "Tableau",
-  "Power BI",
-  "Data Visualization",
-  "D3.js",
-  "Highcharts",
-  "AmCharts",
 ]
 
 const CloudComputing = [
@@ -192,6 +210,8 @@ const CloudComputing = [
   "AWS Lambda",
   "Google Functions",
   "Azure Functions",
+  "heroku",
+  "vercel",
 ]
 
 const FrontendDevelopmentTools = [
@@ -353,9 +373,9 @@ const BlockchainAndDistributedTechnologies = [
   "Quorum",
 ]
 
-const languages = ["english", "spanish", "french", "german"]
+const Languages = ["english", "spanish", "french", "german"]
 
-const adobeTools = ["adobe experience manager", "aem", "osgi", "htl", "magento"]
+const AdobeTools = ["adobe experience manager", "aem", "osgi", "htl", "magento"]
 
 const hardSkills = [
   ...WebDevelopmentFrameworks,
@@ -366,7 +386,8 @@ const hardSkills = [
   ...UserInterfaceDesign,
   ...ProjectManagement,
   ...SoftwareTesting,
-  ...DataScienceAndAnalytics,
+  ...Analytics,
+  ...DataScience,
   ...CloudComputing,
   ...FrontendDevelopmentTools,
   ...SecurityAndCompliance,
@@ -383,7 +404,8 @@ const hardSkills = [
   ...DataEngineeringAndWarehousing,
   ...LegalAndRegulatoryCompliance,
   ...BlockchainAndDistributedTechnologies,
-  ...languages,
+  ...Languages,
+  ...AdobeTools,
 ]
 
 export default hardSkills
