@@ -76,12 +76,12 @@ const WordCounter = () => {
         </button>
       </div>
 
-      {wasAnalyzed && results.yearsExperience.length && (
+      {wasAnalyzed && results.yearsExperience.length ? (
         <>
           <h2>Years of Experience</h2>
           <span className={styles.yearsExperience}>{results.yearsExperience.join(", ")}</span>
         </>
-      )}
+      ) : null}
       {wasAnalyzed && !results.yearsExperience.length && (
         <>
           <h2>Years of Experience</h2>
