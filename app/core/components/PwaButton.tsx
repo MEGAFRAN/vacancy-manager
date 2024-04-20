@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import styles from "../styles/components/pwaButton.module.scss"
 
 const InstallPWAButton: React.FC = () => {
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null)
@@ -32,8 +33,8 @@ const InstallPWAButton: React.FC = () => {
   }
 
   return (
-    <button onClick={handleInstallClick} disabled={!installPrompt}>
-      Install App
+    <button className={styles.container} onClick={handleInstallClick} disabled={!installPrompt}>
+      &#x21a7; Install App
     </button>
   )
 }

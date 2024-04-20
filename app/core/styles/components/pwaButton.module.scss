@@ -1,0 +1,5 @@
+@use "../mixins/html_tags/button";
+
+.container {
+  @include button.add();
+}

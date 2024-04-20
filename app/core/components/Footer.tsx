@@ -16,9 +16,9 @@ const Footer: React.FC = () => (
   <footer className={styles.container}>
     <hr />
     <div className={styles.content}>
+      <InstallPWAButton />
       <SocialLinks />
       <FeedbackForm />
-      <InstallPWAButton />
     </div>
     <nav
       style={{
