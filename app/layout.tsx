@@ -1,8 +1,12 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+}
 
 export const metadata: Metadata = {
   title: "Tech jobs tools | Clubtal",
@@ -11,6 +15,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "http://clubtal.com",
   },
+  manifest: "/manifest.json",
 }
 
 export default function RootLayout({

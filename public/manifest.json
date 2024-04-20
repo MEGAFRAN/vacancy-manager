@@ -1,0 +1,33 @@
+{
+    "name": "Clubtal",
+    "short_name": "Clubtal",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "Tools to manage tech vacancies",
+    "icons": [
+      {
+        "src": "/favicon.ico",
+        "sizes": "any",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "/icons/Logo_192x192.png",
+        "sizes": "192x192",
+        "type": "maskable"
+      },
+      {
+        "src": "/icons/Logo_384x384.png",
+        "sizes": "384x384",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/Logo_512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

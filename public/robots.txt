@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://clubtal.com
+
+# Sitemaps
+Sitemap: https://clubtal.com/sitemap.xml

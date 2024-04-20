@@ -5,6 +5,7 @@ import Link from "next/link"
 import styles from "../styles/components/footer.module.scss"
 import SocialLinks from "./SocialLinks"
 import FeedbackForm from "./FeedbackForm"
+import InstallPWAButton from "./PwaButton"
 
 const sections = [
   { name: "about", slug: "about" },
@@ -17,6 +18,7 @@ const Footer: React.FC = () => (
     <div className={styles.content}>
       <SocialLinks />
       <FeedbackForm />
+      <InstallPWAButton />
     </div>
     <nav
       style={{
