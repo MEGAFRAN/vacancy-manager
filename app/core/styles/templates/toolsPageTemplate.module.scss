@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 0px;
+
+  h1 {
+    display: flex;
+    align-self: center;
+  }
+
+  @media screen and (width >= 768px) {
+    padding: 0px 40px;
+  }
+}
