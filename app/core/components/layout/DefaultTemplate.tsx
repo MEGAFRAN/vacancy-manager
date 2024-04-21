@@ -14,9 +14,6 @@ interface DefaultTemplateProps {
 
 const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children, title, introduction }) => (
   <div className={styles.container}>
-    <header>
-      <NavBar />
-    </header>
     <main>
       {title && <h1 style={{ textAlign: "center" }}>{title}</h1>}
       {introduction && <p style={{ textAlign: "center" }}>{introduction}</p>}

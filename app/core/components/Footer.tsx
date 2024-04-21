@@ -3,24 +3,9 @@
 import React from "react"
 import Link from "next/link"
 import styles from "../styles/components/footer.module.scss"
-import SocialLinks from "./SocialLinks"
-import FeedbackForm from "./FeedbackForm"
-import InstallPWAButton from "./PwaButton"
-
-const sections = [
-  { name: "about", slug: "about" },
-  { name: "wiki", slug: "wiki" },
-  { name: "app", slug: "app" },
-]
 
 const Footer: React.FC = () => (
   <footer className={styles.container}>
-    <hr />
-    <div className={styles.content}>
-      <InstallPWAButton text="Download App" />
-      <SocialLinks />
-      <FeedbackForm />
-    </div>
     <nav
       style={{
         display: "flex",
@@ -29,11 +14,8 @@ const Footer: React.FC = () => (
         padding: "10px",
       }}
     >
-      {sections.map((section) => (
-        <Link key={section.name} href={`/${section.slug}`}>
-          {section.name}
-        </Link>
-      ))}
+      <Link href="/tools">Tools</Link>
+      <Link href="/team">Team</Link>
     </nav>
   </footer>
 )

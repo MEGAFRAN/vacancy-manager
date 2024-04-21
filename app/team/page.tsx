@@ -16,7 +16,7 @@ const externalLinks = [
 export default function Home() {
   return (
     <div className={styles.container}>
-      <h1>Collaboration tools</h1>
+      <h1>Team tools</h1>
       <nav>
         {internalLinks.map(({ name, path }) => (
           <Link key={name} href={path}>
