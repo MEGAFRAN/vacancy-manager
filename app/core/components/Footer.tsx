@@ -10,13 +10,14 @@ import InstallPWAButton from "./PwaButton"
 const sections = [
   { name: "about", slug: "about" },
   { name: "wiki", slug: "wiki" },
+  { name: "app", slug: "app" },
 ]
 
 const Footer: React.FC = () => (
   <footer className={styles.container}>
     <hr />
     <div className={styles.content}>
-      <InstallPWAButton />
+      <InstallPWAButton text="Download App" />
       <SocialLinks />
       <FeedbackForm />
     </div>

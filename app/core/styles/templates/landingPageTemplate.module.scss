@@ -1,0 +1,36 @@
+.container {
+  @media screen and (width >= 768px) {
+    padding: 0px 40px;
+  }
+
+  main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: left;
+    }
+
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0;
+      text-transform: capitalize;
+
+      li {
+        &::marker {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

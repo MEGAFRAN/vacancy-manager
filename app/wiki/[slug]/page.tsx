@@ -4,7 +4,7 @@ import { WikiPage } from "@/app/core/modules/contentful/interfaces"
 import Post from "@/app/core/components/layout/Post"
 import { getAllPages, getPage } from "@/app/core/modules/contentful/queryService"
 import wikiPagesArguments from "@/app/core/modules/contentful/content_types/wikiPages"
-import DefaultTemplate from "../../core/components/layout/Template"
+import DefaultTemplate from "../../core/components/layout/DefaultTemplate"
 
 const { collection, fields, limit, section } = wikiPagesArguments
 export async function generateStaticParams() {

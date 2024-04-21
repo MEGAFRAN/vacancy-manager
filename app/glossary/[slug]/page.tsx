@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Post from "@/app/core/components/layout/Post"
 import glossaryPagesArguments from "@/app/core/modules/contentful/content_types/glossaryPages"
 import { getAllPages, getPage } from "@/app/core/modules/contentful/queryService"
-import DefaultTemplate from "../../core/components/layout/Template"
+import DefaultTemplate from "../../core/components/layout/DefaultTemplate"
 
 const { collection, fields, limit, section } = glossaryPagesArguments
 

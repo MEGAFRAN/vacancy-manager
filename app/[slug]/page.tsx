@@ -1,6 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { notFound } from "next/navigation"
-import DefaultTemplate from "../core/components/layout/Template"
+import DefaultTemplate from "../core/components/layout/DefaultTemplate"
 import { Page } from "../core/modules/contentful/interfaces"
 import Post from "../core/components/layout/Post"
 import { getAllPages, getPage } from "../core/modules/contentful/queryService"

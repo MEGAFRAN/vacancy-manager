@@ -3,7 +3,7 @@ import LinksGrid from "@/app/core/components/LinkGrid"
 import { DirectoryPage } from "@/app/core/modules/contentful/interfaces"
 import directoryPagesArguments from "@/app/core/modules/contentful/content_types/directoryPages"
 import { getAllPages } from "@/app/core/modules/contentful/queryService"
-import DefaultTemplate from "@/app/core/components/layout/Template"
+import DefaultTemplate from "@/app/core/components/layout/DefaultTemplate"
 import { Metadata } from "next"
 
 const { collection, fields, limit } = directoryPagesArguments

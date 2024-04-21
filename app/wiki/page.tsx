@@ -1,5 +1,5 @@
 import Link from "next/link"
-import DefaultTemplate from "../core/components/layout/Template"
+import DefaultTemplate from "../core/components/layout/DefaultTemplate"
 import { getAllPages } from "../core/modules/contentful/queryService"
 import wikiPagesArguments from "../core/modules/contentful/content_types/wikiPages"
 

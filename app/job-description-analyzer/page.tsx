@@ -1,6 +1,6 @@
 import type { NextPage } from "next"
 import WordCounter from "../core/components/WordCounter"
-import DefaultTemplate from "../core/components/layout/Template"
+import DefaultTemplate from "../core/components/layout/DefaultTemplate"
 
 const Home: NextPage = () => (
   <DefaultTemplate

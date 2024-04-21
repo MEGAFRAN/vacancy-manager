@@ -1,7 +1,13 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 import styles from "../styles/components/pwaButton.module.scss"
 
-const InstallPWAButton: React.FC = () => {
+interface PwaButtonProps {
+  text: string
+}
+
+const PwaButton: React.FC<PwaButtonProps> = ({ text }) => {
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null)
 
   useEffect(() => {
@@ -34,9 +40,9 @@ const InstallPWAButton: React.FC = () => {
 
   return (
     <button className={styles.container} onClick={handleInstallClick} disabled={!installPrompt}>
-      &#x21a7; Install App
+      &#x21a7; {text}
     </button>
   )
 }
 
-export default InstallPWAButton
+export default PwaButton

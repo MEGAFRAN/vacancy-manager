@@ -1,5 +1,5 @@
 import Dashboard from "./core/components/Dashboard"
-import DefaultTemplate from "./core/components/layout/Template"
+import DefaultTemplate from "./core/components/layout/DefaultTemplate"
 
 export default function Home() {
   return (
