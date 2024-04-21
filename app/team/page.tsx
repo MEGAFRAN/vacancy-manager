@@ -3,9 +3,9 @@ import Footer from "../core/components/Footer"
 import TeamComponent from "../core/components/Team"
 
 const internalLinks = [
+  { name: "download app", path: "/download-app" },
   { name: "about", path: "/about" },
   { name: "wiki", path: "/wiki" },
-  { name: "app", path: "/app" },
 ]
 
 const externalLinks = [

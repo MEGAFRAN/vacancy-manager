@@ -1,0 +1,17 @@
+@use "../html_tags/a";
+
+@mixin default {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  gap: 80px;
+
+  @media screen and (width >= 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  a {
+    @include a.tool-like();
+    text-transform: capitalize;
+  }
+}

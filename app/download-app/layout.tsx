@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Clubtal app",
   description: "Download the app and improve your job search",
   alternates: {
-    canonical: "http://clubtal.com/app",
+    canonical: "http://clubtal.com/download-app",
   },
   manifest: "/manifest.json",
 }

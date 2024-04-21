@@ -1,17 +1,5 @@
-@use "../mixins/html_tags/a";
+@use "../mixins/html_tags/nav";
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 50px;
-  grid-column-gap: 20px;
-
-  @media screen and (width >= 768px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  a {
-    @include a.button-like();
-    text-transform: capitalize;
-  }
+  @include nav.default();
 }

@@ -3,6 +3,7 @@
 import React from "react"
 import styles from "../../styles/templates/landingPageTemplate.module.scss"
 import SectionAnalytics from "../../modules/analytics/components/SectionAnalytics"
+import Footer from "../Footer"
 
 interface LandingPageTemplateProps {
   children: React.ReactNode
@@ -28,6 +29,7 @@ const LandingPageTemplate: React.FC<LandingPageTemplateProps> = ({
       </ol>
       {children}
     </main>
+    <Footer />
     <SectionAnalytics />
   </div>
 )
