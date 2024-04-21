@@ -6,14 +6,7 @@ import styles from "../styles/components/footer.module.scss"
 
 const Footer: React.FC = () => (
   <footer className={styles.container}>
-    <nav
-      style={{
-        display: "flex",
-        gap: 20,
-        textTransform: "capitalize",
-        padding: "10px",
-      }}
-    >
+    <nav>
       <Link href="/tools">Tools</Link>
       <Link href="/team">Team</Link>
     </nav>

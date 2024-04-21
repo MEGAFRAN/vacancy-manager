@@ -1,6 +1,6 @@
-import Link from "next/link"
 import SectionAnalytics from "../core/modules/analytics/components/SectionAnalytics"
-import styles from "../core/styles/templates/toolsPageTemplate2.module.scss"
+import Footer from "../core/components/Footer"
+import TeamComponent from "../core/components/Team"
 
 const internalLinks = [
   { name: "about", path: "/about" },
@@ -15,20 +15,13 @@ const externalLinks = [
 ]
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <h1>Team tools</h1>
-      <nav>
-        {internalLinks.map(({ name, path }) => (
-          <Link key={name} href={path}>
-            {name}
-          </Link>
-        ))}
-        {externalLinks.map(({ name, path }) => (
-          <a key={name} href={path} target="_blank" rel="noopener noreferrer">
-            {name}
-          </a>
-        ))}
-      </nav>
+    <div>
+      <TeamComponent
+        title="Team tools"
+        externalLinks={externalLinks}
+        internalLinks={internalLinks}
+      />
+      <Footer />
       <SectionAnalytics />
     </div>
   )
