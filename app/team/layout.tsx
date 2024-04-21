@@ -8,10 +8,10 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Team",
-  description: "Tools to connect with clubtal",
+  title: "Tools",
+  description: "Tools to improve your job search",
   alternates: {
-    canonical: "http://clubtal.com/team",
+    canonical: "http://clubtal.com/tools",
   },
   manifest: "/manifest.json",
 }
