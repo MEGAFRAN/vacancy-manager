@@ -1,10 +1,11 @@
 @use "../mixins/html_tags/button";
 @use "../mixins/html_tags/input";
 @use "../mixins/html_tags/label";
+@use "../abstracts/colors";
 
 .container {
-  background-color: #ffffff;
-  outline: 1px solid #ced0d4;
+  background-color: colors.$primary-white;
+  outline: 1px solid colors.$gray8;
   border-radius: 6px;
   padding: 10px;
   margin: 0 4px;

@@ -1,8 +1,10 @@
+@use "../../abstracts/colors";
+
 @mixin add {
-  background-color: rgb(40, 205, 65);
+  background-color: colors.$primary-green;
   border: none;
   border-radius: 6px;
-  color: white;
+  color: colors.$primary-white;
   cursor: pointer;
   font-size: 14px;
   padding: 8px 10px;
@@ -10,15 +12,15 @@
   min-width: 70px;
 
   &:hover {
-    background-color: rgb(0, 125, 27);
+    background-color: colors.$dark-green;
   }
 }
 
 @mixin delete {
-  background-color: rgb(255, 59, 48);
+  background-color: colors.$primary-red;
   border: none;
   border-radius: 6px;
-  color: white;
+  color: colors.$primary-white;
   cursor: pointer;
   font-size: 14px;
   padding: 8px 10px;
@@ -26,6 +28,6 @@
   min-width: 70px;
 
   &:hover {
-    background-color: rgb(215, 0, 21);
+    background-color: colors.$dark-red;
   }
 }

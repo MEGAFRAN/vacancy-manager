@@ -1,22 +1,24 @@
+@use "../../abstracts/colors";
+
 @mixin default {
-  color: #0070f3;
+  color: colors.$primary-blue;
   text-align: center;
 
   &:hover {
-    color: #0056b3;
+    color: colors.$dark-blue;
   }
 }
 
 @mixin button-like {
-  background-color: #0070f3;
-  color: white;
+  background-color: colors.$primary-blue;
+  color: colors.$primary-white;
   text-align: center;
   text-decoration: none;
   padding: 8px;
   border-radius: 6px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: colors.$dark-blue;
   }
 }
 
@@ -27,13 +29,13 @@
   text-align: center;
   width: 80px;
   height: 80px;
-  background-color: #0070f3;
-  color: white;
+  background-color: colors.$primary-blue;
+  color: colors.$primary-white;
   text-decoration: none;
   padding: 8px;
   border-radius: 6px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: colors.$dark-blue;
   }
 }

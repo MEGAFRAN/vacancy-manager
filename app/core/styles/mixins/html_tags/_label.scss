@@ -1,4 +1,6 @@
+@use "../../abstracts/colors";
+
 @mixin default {
   font-size: 12px;
-  color: #5e6c84;
+  color: colors.$gray4;
 }

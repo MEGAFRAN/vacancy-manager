@@ -1,9 +1,11 @@
+@use "../abstracts/colors";
+
 .container {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: black;
+  background-color: colors.$secondary-black;
   padding: 10px 0px;
 
   nav {
@@ -12,8 +14,8 @@
     justify-content: space-evenly;
 
     a {
-      color: white;
-      outline: solid 1px white;
+      color: colors.$primary-white;
+      outline: solid 1px colors.$primary-white;
       border-radius: 6px;
       padding: 8px;
       text-decoration: none;
