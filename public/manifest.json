@@ -12,57 +12,29 @@
         "sizes": "600x1300",
         "type": "image/png",
         "form_factor": "narrow",
-        "label": "Wonder Widgets"
+        "label": "Job tracker"
       },
       {
         "src": "/app_screenshots/2_analyzer.png",
-         "sizes": "586x1268",
+         "sizes": "600x1300",
          "type": "image/png",
          "form_factor": "narrow",
-         "label": "Wonder Widgets"
+         "label": "Job analyzer"
        },
        {
         "src": "/app_screenshots/3_job_tools.png",
-         "sizes": "602x1296",
+         "sizes": "600x1300",
          "type": "image/png",
          "form_factor": "narrow",
          "label": "Job tools"
        },
        {
         "src": "/app_screenshots/4_team_tools.png",
-         "sizes": "584x1260",
+         "sizes": "600x1300",
          "type": "image/png",
          "form_factor": "narrow",
          "label": "Team tools"
-       },
-       {
-        "src": "/app_screenshots/1_tracker.png",
-         "sizes": "600x1300",
-         "type": "image/png",
-         "form_factor": "wide",
-         "label": "Wonder Widgets"
-       },
-       {
-         "src": "/app_screenshots/2_analyzer.png",
-          "sizes": "586x1268",
-          "type": "image/png",
-          "form_factor": "wide",
-          "label": "Wonder Widgets"
-        },
-        {
-         "src": "/app_screenshots/3_job_tools.png",
-          "sizes": "602x1296",
-          "type": "image/png",
-          "form_factor": "wide",
-          "label": "Job tools"
-        },
-        {
-         "src": "/app_screenshots/4_team_tools.png",
-          "sizes": "584x1260",
-          "type": "image/png",
-          "form_factor": "wide",
-          "label": "Team tools"
-        }
+       }
     ],
     "icons": [
       {
