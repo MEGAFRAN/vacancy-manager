@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import NavBar from "../NavBar"
 import Footer from "../Footer"
 import styles from "../../styles/templates/template.module.scss"
 import SectionAnalytics from "../../modules/analytics/components/SectionAnalytics"

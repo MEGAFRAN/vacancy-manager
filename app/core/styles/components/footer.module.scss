@@ -1,4 +1,5 @@
 @use "../abstracts/colors";
+@use "../mixins/html_tags/a";
 
 .container {
   position: fixed;
@@ -14,14 +15,7 @@
     justify-content: space-evenly;
 
     a {
-      color: colors.$primary-white;
-      outline: solid 1px colors.$primary-white;
-      border-radius: 6px;
-      padding: 8px;
-      text-decoration: none;
-      max-width: 140px;
-      min-width: 70px;
-      text-align: center;
+      @include a.contrast();
     }
   }
 }
