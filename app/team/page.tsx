@@ -5,7 +5,7 @@ import ShareButton from "../core/components/ShareButton"
 import deviceRelated from "../core/modules/util/deviceRelated"
 
 const isMobileDevice = deviceRelated.isMobileDevice()
-const isPWAInstalled = deviceRelated.isPWAInstalled()
+const isAppInstalled = deviceRelated.isAppInstalled()
 
 const linksWithDownloadApp = [
   { name: "download app", path: "/download-app" },
@@ -18,7 +18,7 @@ const linksWithoutDownloadApp = [
   { name: "wiki", path: "/wiki" },
 ]
 
-const validatedInternalLinks = isPWAInstalled
+const validatedInternalLinks = isAppInstalled
   ? [...linksWithoutDownloadApp]
   : [...linksWithDownloadApp]
 

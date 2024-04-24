@@ -7,5 +7,8 @@ const gtmEvents = {
   deleteTechJobCard(data: Record<string, any>): void {
     googleTagService.feedDataLayer({ eventName: "delete_tech_job_card", ...data })
   },
+  installApp(data: Record<string, any>): void {
+    googleTagService.feedDataLayer({ eventName: "install_app", ...data })
+  },
 }
 export default gtmEvents

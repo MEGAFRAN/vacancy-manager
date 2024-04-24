@@ -1,3 +1,5 @@
+const INSTALLATION_KEY = "clubtal-isInstalled"
+
 const isMobileDevice = (): boolean => {
   if (typeof window === "undefined" || typeof navigator === "undefined") {
     return false
@@ -22,26 +24,27 @@ const isMobileDevice = (): boolean => {
   return isMobileUserAgent || hasTouch
 }
 
-const isPWAInstalled = (): boolean => {
-  if (typeof localStorage === "undefined") return false
+const setStorageAppInstallationKey = (): void => {
+  if (typeof localStorage === "undefined") return
 
-  const STORAGE_KEY = "clubtal.isPWAInstalled"
-  const hasPWAInstalled = localStorage.getItem(STORAGE_KEY) === "true"
+  const hasPWAInstalled = localStorage.getItem(INSTALLATION_KEY) === "true"
 
-  if (hasPWAInstalled) return true
+  if (hasPWAInstalled) return
 
   const isIOsPWA = !!("standalone" in navigator && navigator.standalone)
   const isAndroidPWA = window.matchMedia("(display-mode: standalone)").matches
   const isOldAndroidPWA = window.matchMedia("(display-mode: fullscreen)").matches
   const isMobilePWA = isIOsPWA || isAndroidPWA || isOldAndroidPWA
 
-  localStorage.setItem(STORAGE_KEY, String(isMobilePWA))
-  return isMobilePWA
+  localStorage.setItem(INSTALLATION_KEY, String(isMobilePWA))
 }
+
+const isAppInstalled = (): boolean => localStorage.getItem(INSTALLATION_KEY) === "true"
 
 const deviceRelated = {
   isMobileDevice,
-  isPWAInstalled,
+  setStorageAppInstallationKey,
+  isAppInstalled,
 }
 
 export default deviceRelated

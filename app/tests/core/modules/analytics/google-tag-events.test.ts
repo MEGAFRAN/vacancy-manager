@@ -28,4 +28,15 @@ describe("gtmEvents", () => {
       expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(data)
     })
   })
+
+  describe("install app", () => {
+    it("should call feedDataLayer with the given data and default event", () => {
+      const eventName = "install_app"
+      const data = { eventName, key: "value" }
+
+      gtmEvents.installApp(data)
+
+      expect(googleTagService.feedDataLayer).toHaveBeenCalledWith(data)
+    })
+  })
 })
