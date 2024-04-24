@@ -7,9 +7,15 @@ interface TeamComponentProps {
   title: string
   internalLinks: { name: string; path: string }[]
   externalLinks: { name: string; path: string }[]
+  children?: React.ReactNode
 }
 
-const TeamComponent: React.FC<TeamComponentProps> = ({ title, internalLinks, externalLinks }) => (
+const TeamComponent: React.FC<TeamComponentProps> = ({
+  title,
+  internalLinks,
+  externalLinks,
+  children,
+}) => (
   <div className={styles.container}>
     {title && <h1>{title}</h1>}
     <nav>
@@ -23,6 +29,7 @@ const TeamComponent: React.FC<TeamComponentProps> = ({ title, internalLinks, ext
           {name}
         </a>
       ))}
+      {children}
     </nav>
   </div>
 )
