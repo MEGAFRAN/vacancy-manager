@@ -22,4 +22,26 @@ const isMobileDevice = (): boolean => {
   return isMobileUserAgent || hasTouch
 }
 
-export default isMobileDevice
+const isPWAInstalled = (): boolean => {
+  if (typeof localStorage === "undefined") return false
+
+  const STORAGE_KEY = "clubtal.isPWAInstalled"
+  const hasPWAInstalled = localStorage.getItem(STORAGE_KEY) === "true"
+
+  if (hasPWAInstalled) return true
+
+  const isIOsPWA = !!("standalone" in navigator && navigator.standalone)
+  const isAndroidPWA = window.matchMedia("(display-mode: standalone)").matches
+  const isOldAndroidPWA = window.matchMedia("(display-mode: fullscreen)").matches
+  const isMobilePWA = isIOsPWA || isAndroidPWA || isOldAndroidPWA
+
+  localStorage.setItem(STORAGE_KEY, String(isMobilePWA))
+  return isMobilePWA
+}
+
+const deviceRelated = {
+  isMobileDevice,
+  isPWAInstalled,
+}
+
+export default deviceRelated

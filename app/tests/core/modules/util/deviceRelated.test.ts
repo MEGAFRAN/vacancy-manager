@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import isMobileDevice from "@/app/core/modules/util/deviceRelated"
+import deviceRelated from "@/app/core/modules/util/deviceRelated"
 
 describe("isMobileDevice function", () => {
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe("isMobileDevice function", () => {
     jest.spyOn(navigator, "maxTouchPoints", "get").mockReturnValue(100)
     jest.spyOn(window, "ontouchstart", "get").mockReturnValue(() => {})
 
-    expect(isMobileDevice()).toBe(true)
+    expect(deviceRelated.isMobileDevice()).toBe(true)
   })
 
   test.each(testUserAgents.desktop)("returns false for desktop user agents: %s", (userAgent) => {
@@ -42,7 +42,7 @@ describe("isMobileDevice function", () => {
     jest.spyOn(window, "ontouchstart", "get").mockReturnValue(null)
     delete window.ontouchstart
 
-    expect(isMobileDevice()).toBe(false)
+    expect(deviceRelated.isMobileDevice()).toBe(false)
   })
 
   test("returns true if device has touch capabilities", () => {
@@ -53,7 +53,7 @@ describe("isMobileDevice function", () => {
       )
     jest.spyOn(navigator, "maxTouchPoints", "get").mockReturnValue(100)
 
-    expect(isMobileDevice()).toBe(true)
+    expect(deviceRelated.isMobileDevice()).toBe(true)
   })
 
   test("returns true if 'ontouchstart' is present in window", () => {
@@ -64,7 +64,7 @@ describe("isMobileDevice function", () => {
       )
     jest.spyOn(window, "ontouchstart", "get").mockReturnValue(() => {})
 
-    expect(isMobileDevice()).toBe(true)
+    expect(deviceRelated.isMobileDevice()).toBe(true)
   })
 
   it("should return false when window or navigator is undefined", () => {
@@ -73,7 +73,7 @@ describe("isMobileDevice function", () => {
     delete global.window
     delete global.navigator
 
-    expect(isMobileDevice()).toBe(false)
+    expect(deviceRelated.isMobileDevice()).toBe(false)
 
     global.window = originalWindow
     global.navigator = originalNavigator
@@ -94,6 +94,6 @@ describe("isMobileDevice function", () => {
       writable: true,
     })
 
-    expect(isMobileDevice()).toBe(true)
+    expect(deviceRelated.isMobileDevice()).toBe(true)
   })
 })

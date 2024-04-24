@@ -2,13 +2,25 @@ import SectionAnalytics from "../core/modules/analytics/components/SectionAnalyt
 import Footer from "../core/components/Footer"
 import TeamComponent from "../core/components/Team"
 import ShareButton from "../core/components/ShareButton"
-import isMobileDevice from "../core/modules/util/deviceRelated"
+import deviceRelated from "../core/modules/util/deviceRelated"
 
-const internalLinks = [
+const isMobileDevice = deviceRelated.isMobileDevice()
+const isPWAInstalled = deviceRelated.isPWAInstalled()
+
+const linksWithDownloadApp = [
   { name: "download app", path: "/download-app" },
   { name: "about", path: "/about" },
   { name: "wiki", path: "/wiki" },
 ]
+
+const linksWithoutDownloadApp = [
+  { name: "about", path: "/about" },
+  { name: "wiki", path: "/wiki" },
+]
+
+const validatedInternalLinks = isPWAInstalled
+  ? [...linksWithoutDownloadApp]
+  : [...linksWithDownloadApp]
 
 const externalLinks = [
   { name: "Github", path: "https://github.com/MEGAFRAN/vacancy-manager" },
@@ -18,8 +30,12 @@ const externalLinks = [
 export default function Home() {
   return (
     <div>
-      <TeamComponent title="Team tools" externalLinks={externalLinks} internalLinks={internalLinks}>
-        {isMobileDevice() ? <ShareButton text="Share" /> : null}
+      <TeamComponent
+        title="Team tools"
+        externalLinks={externalLinks}
+        internalLinks={validatedInternalLinks}
+      >
+        {isMobileDevice ? <ShareButton text="Share" /> : null}
       </TeamComponent>
 
       <Footer />
