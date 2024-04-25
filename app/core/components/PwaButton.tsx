@@ -40,7 +40,7 @@ const PwaButton: React.FC<PwaButtonProps> = ({ text }) => {
 
   return (
     <button className={styles.container} onClick={handleInstallClick} disabled={!installPrompt}>
-      &#x21a7; {text}
+      {text}
     </button>
   )
 }

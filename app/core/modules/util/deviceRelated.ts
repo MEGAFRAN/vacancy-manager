@@ -39,7 +39,11 @@ const setStorageAppInstallationKey = (): void => {
   localStorage.setItem(INSTALLATION_KEY, String(isMobilePWA))
 }
 
-const isAppInstalled = (): boolean => localStorage.getItem(INSTALLATION_KEY) === "true"
+const isAppInstalled = (): boolean => {
+  if (typeof localStorage === "undefined") return false
+
+  return localStorage.getItem(INSTALLATION_KEY) === "true"
+}
 
 const deviceRelated = {
   isMobileDevice,
