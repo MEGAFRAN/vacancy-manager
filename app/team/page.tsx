@@ -1,3 +1,5 @@
+"use client"
+
 import SectionAnalytics from "../core/modules/analytics/components/SectionAnalytics"
 import Footer from "../core/components/Footer"
 import TeamComponent from "../core/components/Team"
