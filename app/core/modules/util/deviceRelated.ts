@@ -24,31 +24,18 @@ const isMobileDevice = (): boolean => {
   return isMobileUserAgent || hasTouch
 }
 
-const setStorageAppInstallationKey = (): void => {
-  if (typeof localStorage === "undefined") return
-
-  const hasPWAInstalled = localStorage.getItem(INSTALLATION_KEY) === "true"
-
-  if (hasPWAInstalled) return
+const isStandAloneMode = (): boolean => {
+  if (typeof window === "undefined") return false
 
   const isIOsPWA = !!("standalone" in navigator && navigator.standalone)
   const isAndroidPWA = window.matchMedia("(display-mode: standalone)").matches
   const isOldAndroidPWA = window.matchMedia("(display-mode: fullscreen)").matches
-  const isMobilePWA = isIOsPWA || isAndroidPWA || isOldAndroidPWA
-
-  localStorage.setItem(INSTALLATION_KEY, String(isMobilePWA))
-}
-
-const isAppInstalled = (): boolean => {
-  if (typeof localStorage === "undefined") return false
-
-  return localStorage.getItem(INSTALLATION_KEY) === "true"
+  return isIOsPWA || isAndroidPWA || isOldAndroidPWA
 }
 
 const deviceRelated = {
   isMobileDevice,
-  setStorageAppInstallationKey,
-  isAppInstalled,
+  isStandAloneMode,
 }
 
 export default deviceRelated
