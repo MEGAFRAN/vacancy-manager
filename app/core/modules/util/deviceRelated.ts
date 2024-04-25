@@ -1,9 +1,5 @@
-const INSTALLATION_KEY = "clubtal-isInstalled"
-
 const isMobileDevice = (): boolean => {
-  if (typeof window === "undefined" || typeof navigator === "undefined") {
-    return false
-  }
+  if (typeof window === "undefined" || typeof navigator === "undefined") return false
 
   const userAgent = navigator.userAgent.toLowerCase()
   const mobileKeywords = [
