@@ -1,26 +1,21 @@
 "use client"
 
+import { useContext } from "react"
 import SectionAnalytics from "../core/modules/analytics/components/SectionAnalytics"
 import Footer from "../core/components/Footer"
 import TeamComponent from "../core/components/Team"
 import ShareButton from "../core/components/ShareButton"
-import useIsMobileDevice from "../core/hooks/useIsMobileDevice"
-import useIsStandAloneMode from "../core/hooks/useIsStandAloneView"
+import { Context } from "../core/context/display-context"
 
 export default function Home() {
-  const isMobileDevice = useIsMobileDevice()
-  const isStandAloneMode = useIsStandAloneMode()
+  const { isStandAloneMode, isMobileDevice } = useContext(Context)
 
   const linksWithDownloadApp = [
     { name: "download app", path: "/download-app" },
     { name: "about", path: "/about" },
-    { name: "wiki", path: "/wiki" },
   ]
 
-  const linksWithoutDownloadApp = [
-    { name: "about", path: "/about" },
-    { name: "wiki", path: "/wiki" },
-  ]
+  const linksWithoutDownloadApp = [{ name: "about", path: "/about" }]
 
   const validatedInternalLinks = isStandAloneMode
     ? [...linksWithoutDownloadApp]

@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import React, { useContext } from "react"
 import Link from "next/link"
 import styles from "../styles/components/footer.module.scss"
 import PwaButton from "./PwaButton"
-import useIsStandAloneMode from "../hooks/useIsStandAloneView"
+import { Context } from "../context/display-context"
 
 const Footer: React.FC = () => {
-  const isStandAloneMode = useIsStandAloneMode()
+  const { isStandAloneMode } = useContext(Context)
 
   return (
     <footer className={styles.container}>
