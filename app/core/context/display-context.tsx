@@ -4,8 +4,8 @@ import React, { createContext, useState } from "react"
 import deviceRelated from "../modules/util/deviceRelated"
 
 export const Context = createContext({
-  isStandAloneMode: false,
-  isMobileDevice: false,
+  isStandAloneMode: true,
+  isMobileDevice: true,
 })
 
 const DisplayContext = ({ children }: any) => {
