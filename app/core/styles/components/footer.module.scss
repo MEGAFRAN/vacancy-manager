@@ -16,6 +16,10 @@
 
     a {
       @include a.contrast();
+
+      &.active {
+        @include a.contrast-inverted();
+      }
     }
   }
 }

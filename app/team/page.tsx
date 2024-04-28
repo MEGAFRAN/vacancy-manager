@@ -34,7 +34,7 @@ export default function Home() {
         externalLinks={externalLinks}
         internalLinks={validatedInternalLinks}
       >
-        {isMobileDevice ? <ShareButton text="Share" /> : null}
+        {isMobileDevice ? <ShareButton text="Share" /> : <ShareButton text="Share" />}
       </TeamComponent>
 
       <Footer />

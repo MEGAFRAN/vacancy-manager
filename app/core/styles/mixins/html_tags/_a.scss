@@ -55,3 +55,20 @@
     color: colors.$secondary-black;
   }
 }
+
+@mixin contrast-inverted {
+  text-align: center;
+  color: colors.$secondary-black;
+  outline: solid 1px colors.$secondary-black;
+  background-color: colors.$primary-white;
+  border-radius: 6px;
+  padding: 8px;
+  text-decoration: none;
+  max-width: 140px;
+  min-width: 70px;
+
+  &:hover {
+    background-color: colors.$secondary-black;
+    color: colors.$primary-white;
+  }
+}
