@@ -10,6 +10,8 @@ import { Context } from "../context/display-context"
 const Footer: React.FC = () => {
   const { isStandAloneMode } = useContext(Context)
   const currentPathname = usePathname()
+  const isIndexPath = "/"
+  const shouldShowDownloadButton = !isIndexPath || !isStandAloneMode
 
   const buttons = [
     { path: "/tools/", text: "Tools" },
@@ -24,7 +26,7 @@ const Footer: React.FC = () => {
             {text}
           </Link>
         ))}
-        {isStandAloneMode ? null : <PwaButton text="Download App" />}
+        {shouldShowDownloadButton && <PwaButton text="Download App" />}
       </nav>
     </footer>
   )
