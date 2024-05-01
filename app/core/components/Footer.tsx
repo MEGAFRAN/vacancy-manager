@@ -10,8 +10,8 @@ import { Context } from "../context/display-context"
 const Footer: React.FC = () => {
   const { isStandAloneMode } = useContext(Context)
   const currentPathname = usePathname()
-  const isIndexPath = "/"
-  const shouldShowDownloadButton = !isIndexPath || !isStandAloneMode
+  const isIndexPath = currentPathname === "/"
+  const shouldShowDownloadButton = !isIndexPath && !isStandAloneMode
 
   const buttons = [
     { path: "/tools/", text: "Tools" },
