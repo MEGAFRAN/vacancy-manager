@@ -27,6 +27,7 @@ export interface WikiPage extends Entry {
 
 export interface GlossaryPage extends Entry {
   section: string
+  metadata: { canonicalUrl: string; title: string; description: string }
 }
 
 export interface DirectoryPage extends Entry {

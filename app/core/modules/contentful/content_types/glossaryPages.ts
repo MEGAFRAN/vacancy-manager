@@ -5,6 +5,7 @@ const fields = `
   title
   slug
   section
+  metadata
   details {
     json
     links {
