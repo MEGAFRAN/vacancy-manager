@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   const shouldShowDownloadButton = !isIndexPath && !isStandAloneMode
 
   const buttons = [
-    { path: "/tools/", text: "Tools" },
+    { path: "/", text: "Tools" },
     { path: "/team/", text: "Team" },
   ]
 

@@ -8,12 +8,11 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Tools",
-  description: "Tools to improve your job search",
+  title: "Team",
+  description: "Team's communication tools",
   alternates: {
-    canonical: "http://clubtal.com/tools",
+    canonical: "http://clubtal.com/team",
   },
-  manifest: "/manifest.json",
 }
 
 export default function RootLayout({

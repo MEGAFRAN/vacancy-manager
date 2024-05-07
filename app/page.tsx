@@ -1,15 +1,17 @@
-"use client"
+import ToolsPageTemplate from "./core/components/layout/ToolsPage"
+import ToolsGrid from "./core/components/ToolsGrid"
 
-import Dashboard from "./core/components/Dashboard"
-import DefaultTemplate from "./core/components/layout/DefaultTemplate"
-
+const tools = [
+  { name: "Job tracker", path: "/job-tracker" },
+  { name: "Job analyzer", path: "/job-description-analyzer" },
+  { name: "Career pages", path: "/directories/career-pages" },
+  { name: "Jobs boards", path: "/directories/tech-jobs-boards" },
+  { name: "Jobs glossary", path: "/glossary" },
+]
 export default function Home() {
   return (
-    <DefaultTemplate
-      title="Tech jobs tracker"
-      introduction="Add and control the vacancies you are interested in"
-    >
-      <Dashboard />
-    </DefaultTemplate>
+    <ToolsPageTemplate title="Tech Jobs Tools">
+      <ToolsGrid tools={tools} />
+    </ToolsPageTemplate>
   )
 }
