@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "jest a && next build",
-    "postbuild": "next-sitemap",
+    "build": "jest a && next build && next-sitemap",
     "start": "npx serve@latest out",
     "lint": "next lint --dir .",
     "lint:scss": "stylelint \"./app/**/*.scss\"",

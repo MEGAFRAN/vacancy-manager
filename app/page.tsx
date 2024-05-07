@@ -7,6 +7,7 @@ const tools = [
   { name: "Career pages", path: "/directories/career-pages" },
   { name: "Jobs boards", path: "/directories/tech-jobs-boards" },
   { name: "Jobs glossary", path: "/glossary" },
+  { name: "CV template", path: "/cv-template" },
 ]
 export default function Home() {
   return (
