@@ -63,6 +63,7 @@ const ProgrammingLanguages = [
   "Perl",
   "C++",
   "Dart",
+  "R",
 ]
 
 const DatabaseManagement = [
@@ -160,6 +161,8 @@ const Analytics = [
   "gtm",
   "bigquery",
   "big query",
+  "redshift",
+  "snowflake",
   "adobe analytics",
   "adobe launch",
   "adobe dtm",
@@ -170,11 +173,19 @@ const Analytics = [
   "tealium",
   "Tableau",
   "Power BI",
+  "looker",
   "Data Visualization",
   "D3.js",
   "Highcharts",
   "AmCharts",
   "one trust",
+  "fivetran",
+  "airbyte",
+  "stitch",
+  "singer",
+  "dbt",
+  "airflow",
+  "databricks",
 ]
 
 const DataScience = [
