@@ -75,14 +75,18 @@ const DatabaseManagement = [
   "Oracle",
   "Firebase",
   "SQLite",
+  "SQL Server",
 ]
 
 const DevOpsTools = [
   "Docker",
   "Kubernetes",
   "AWS",
+  "amazon web services",
   "Azure",
   "Google Cloud",
+  "gcp",
+  "google cloud platform",
   "DevOps",
   "CI/CD",
   "Jenkins",
@@ -173,7 +177,9 @@ const Analytics = [
   "tealium",
   "Tableau",
   "Power BI",
+  "powerbi",
   "looker",
+  "excel",
   "Data Visualization",
   "D3.js",
   "Highcharts",
