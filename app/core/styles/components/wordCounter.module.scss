@@ -9,6 +9,10 @@
   padding: 0;
   gap: 20px;
 
+  label {
+    font-weight: bold;
+  }
+
   textArea {
     height: 20vh;
     width: 80vw;

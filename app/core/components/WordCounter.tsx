@@ -66,7 +66,8 @@ const WordCounter = () => {
 
   return (
     <div className={styles.container}>
-      <textarea value={text} onChange={handleTextChange} />
+      <label htmlFor="wordcounter-text">Job description</label>
+      <textarea id="wordcounter-text" value={text} onChange={handleTextChange} />
       <div className={styles.button_control}>
         <button className={styles.analyze} onClick={handleValidate}>
           Analyze
